@@ -1,21 +1,27 @@
-FROM dunglas/frankenphp:php8.2-bookworm
+FROM php:8.2-apache
 
-RUN install-php-extensions intl zip pdo_mysql mbstring ctype curl dom fileinfo openssl tokenizer xml bcmath gd
+RUN apt-get update && apt-get install -y libicu-dev libzip-dev libpng-dev libxml2-dev curl unzip \
+    && docker-php-ext-install intl zip pdo_mysql mbstring ctype dom fileinfo xml bcmath gd \
+    && a2enmod rewrite
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-WORKDIR /app
-
-COPY composer.json composer.lock ./
-RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --optimize-autoloader --no-scripts --no-interaction
+WORKDIR /var/www/html
 
 COPY . .
 
-RUN mkdir -p storage/framework/{sessions,views,cache,testing} storage/logs bootstrap/cache && chmod -R 777 storage bootstrap/cache
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --optimize-autoloader --no-dev --no-interaction
 
-ENV FRANKENPHP_CONFIG="worker ./public/index.php"
-ENV SERVER_NAME=":8080"
+RUN mkdir -p storage/framework/{sessions,views,cache,testing} storage/logs bootstrap/cache \
+    && chmod -R 777 storage bootstrap/cache \
+    && chown -R www-data:www-data .
 
-EXPOSE 8080
+RUN echo '<VirtualHost *:80>\n\
+    DocumentRoot /var/www/html/public\n\
+    <Directory /var/www/html/public>\n\
+        AllowOverride All\n\
+        Require all granted\n\
+    </Directory>\n\
+</VirtualHost>' > /etc/apache2/sites-available/000-default.conf
 
-CMD ["frankenphp", "run", "--config", "/etc/caddy/Caddyfile"]
+EXPOSE 80
