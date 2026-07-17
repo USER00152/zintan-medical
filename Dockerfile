@@ -1,6 +1,13 @@
 FROM php:8.2-apache
 
-RUN apt-get update && apt-get install -y libicu-dev libzip-dev libpng-dev libxml2-dev curl unzip \
+RUN apt-get update && apt-get install -y \
+    libicu-dev \
+    libzip-dev \
+    libpng-dev \
+    libxml2-dev \
+    libonig-dev \
+    curl \
+    unzip \
     && docker-php-ext-install intl zip pdo_mysql mbstring ctype dom fileinfo xml bcmath gd \
     && a2enmod rewrite
 
