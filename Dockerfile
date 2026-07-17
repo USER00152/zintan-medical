@@ -9,7 +9,8 @@ RUN apt-get update && apt-get install -y \
     curl \
     unzip \
     && docker-php-ext-install intl zip pdo_mysql mbstring ctype dom fileinfo xml bcmath gd \
-    && a2enmod rewrite
+    && a2dismod mpm_event \
+    && a2enmod mpm_prefork rewrite
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
