@@ -7,14 +7,15 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 
 COPY composer.json composer.lock ./
-RUN composer install --optimize-autoloader --no-scripts --no-interaction
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --optimize-autoloader --no-scripts --no-interaction
 
 COPY . .
 
-RUN mkdir -p storage/framework/{sessions,views,cache,testing} storage/logs bootstrap/cache && chmod -R a+rw storage bootstrap/cache
+RUN mkdir -p storage/framework/{sessions,views,cache,testing} storage/logs bootstrap/cache && chmod -R 777 storage bootstrap/cache
 
-RUN php artisan config:cache && php artisan route:cache && php artisan view:cache
+ENV FRANKENPHP_CONFIG="worker ./public/index.php"
+ENV SERVER_NAME=":8080"
 
-EXPOSE 80
+EXPOSE 8080
 
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=80"]
+CMD ["frankenphp", "run", "--config", "/etc/caddy/Caddyfile"]
