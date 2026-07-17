@@ -17,11 +17,11 @@ RUN mkdir -p storage/framework/{sessions,views,cache,testing} storage/logs boots
     && chmod -R 777 storage bootstrap/cache \
     && chown -R www-data:www-data /var/www/html
 
-RUN rm -f /etc/nginx/sites-enabled/default /etc/nginx/conf.d/*.conf
+RUN rm -f /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default /etc/nginx/conf.d/*.conf
 
-RUN printf 'server {\n    listen 80;\n    root /var/www/html/public;\n    index index.php;\n    location / { try_files $uri $uri/ /index.php?$query_string; }\n    location ~ \\.php$ {\n        include fastcgi_params;\n        fastcgi_pass 127.0.0.1:9000;\n        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;\n    }\n}\n' > /etc/nginx/conf.d/app.conf
+RUN printf 'server {\n    listen 80 default_server;\n    root /var/www/html/public;\n    index index.php index.html;\n    location / {\n        try_files $uri $uri/ /index.php?$query_string;\n    }\n    location ~ \\.php$ {\n        include fastcgi_params;\n        fastcgi_pass 127.0.0.1:9000;\n        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;\n        fastcgi_index index.php;\n    }\n}\n' > /etc/nginx/conf.d/laravel.conf
 
-RUN printf '[supervisord]\nnodaemon=true\n\n[program:phpfpm]\ncommand=php-fpm -F\nautostart=true\nautorestart=true\n\n[program:nginx]\ncommand=nginx -g "daemon off;"\nautostart=true\nautorestart=true\n' > /etc/supervisor/conf.d/supervisord.conf
+RUN printf '[supervisord]\nnodaemon=true\nuser=root\n\n[program:phpfpm]\ncommand=php-fpm -F\nautostart=true\nautorestart=true\nstdout_logfile=/dev/stdout\nstdout_logfile_maxbytes=0\n\n[program:nginx]\ncommand=nginx -g "daemon off;"\nautostart=true\nautorestart=true\nstdout_logfile=/dev/stdout\nstdout_logfile_maxbytes=0\n' > /etc/supervisor/conf.d/supervisord.conf
 
 EXPOSE 80
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
