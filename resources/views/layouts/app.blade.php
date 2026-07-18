@@ -195,7 +195,7 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
 .partner-card{background:var(--bg);border:1.5px solid var(--bdr);border-radius:20px;padding:28px;text-align:center;transition:.25s}
 .partner-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(90,174,122,.2);border-color:var(--p)}
 .partner-card-featured{background:linear-gradient(160deg,var(--pdd),var(--p));border:none;box-shadow:0 16px 40px rgba(58,112,82,.3)}
-
+.hero-vis svg{width:260px;height:260px;animation:floatDoc 3.5s ease-in-out infinite}
 /* SCROLL HIGHLIGHT */
 .highlight-pulse{animation:highlightPop .8s ease-out}
 @keyframes highlightPop{0%{box-shadow:0 0 0 0 rgba(90,174,122,.5)}60%{box-shadow:0 0 0 12px rgba(90,174,122,.1)}100%{box-shadow:0 0 0 0 rgba(90,174,122,0)}}
@@ -229,7 +229,8 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
   /* Hero */
   .hero{padding:20px 12px 28px!important}
   .hero-in{display:flex!important;flex-direction:column!important;gap:16px!important;align-items:center!important}
-  .hero-vis{display:none!important}
+ .hero-vis{display:flex;align-items:center;justify-content:center}
+  .hero-vis svg{width:200px!important;height:200px!important}
   .hero-ct h1{font-size:20px!important;text-align:center!important}
   .hero-qs{font-size:12px!important;text-align:center!important}
   .hero-p{font-size:12px!important;margin-bottom:12px!important;text-align:center!important;max-width:100%!important}
