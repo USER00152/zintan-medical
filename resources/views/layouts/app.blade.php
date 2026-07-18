@@ -178,9 +178,16 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
 }
 
 @media(max-width:480px) {
+  /* منع تحول الشبكة إلى عمود واحد والحفاظ على تقسيم العمودين المتجاورين */
   .hierarchical-grid {
-    display: flex !important;
-    flex-direction: column !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+  
+  /* التأكيد على أن كارد الهيرو تأخذ المساحة كاملة في الأعلى */
+  .hierarchical-grid .top-hero-card {
+    grid-column: 1 / span 2 !important;
   }
 }
 
