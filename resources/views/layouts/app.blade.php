@@ -7,7 +7,7 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --p:#5AAE7A;--pd:#4A9066;--pdd:#3A7052;
+  --p:#B2DDB8;--pd:#8FBF96;--pdd:#6A9E75;
   --pl:#EEF8F0;--pll:#F6FCF7;
   --td:#1a2e22;--tm:#6b8f7a;--tl:#a8c4b0;
   --bg:#F8FBF8;--card:#fff;--bdr:#D8EDD8;--bds:#EAF3EA;
