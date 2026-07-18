@@ -3,6 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style>
+    @media (max-width: 768px) {
+        /* تجعل أي عناصر مرصوصة بجانب بعضها تنزل تحت بعضها بانتظام */
+        .row, .flex, .navbar, .grid, .form-group {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            align-items: center !important;
+        }
+        /* تصغير حجم الخطوط الكبيرة لكي لا تأخذ مساحة الشاشة */
+        h1, h2, h3 {
+            font-size: 1.5rem !important;
+            text-align: center !important;
+        }
+        /* ضبط الجداول والقوائم لكي لا تخرج عن الشاشة */
+        table, .card, .container, input, select {
+            width: 95% !important;
+            max-width: 95% !important;
+            display: block !important;
+            margin: 10px auto !important;
+        }
+    }
+</style>
 <title>@yield('title', 'منصة الزنتان الطبية')</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
