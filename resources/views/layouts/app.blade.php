@@ -86,6 +86,60 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
 .iw-ic{position:absolute;top:50%;left:12px;transform:translateY(-50%);color:var(--tl);pointer-events:none}
 .iw-ic svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
 
+/* SECTIONS */
+.sec{padding:52px 28px}
+
+/* SHARED GRIDS ─ define once, override in page CSS */
+.sp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ph-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+
+/* SHARED CARDS */
+.sp-card{background:var(--card);border:1.5px solid var(--bdr);border-radius:var(--r22);padding:22px 12px;text-align:center;transition:.25s;cursor:pointer}
+.sp-card:hover{border-color:var(--p);box-shadow:var(--s2);transform:translateY(-4px)}
+.sp-ico{width:52px;height:52px;margin:0 auto 11px;border-radius:15px;background:var(--pl);display:flex;align-items:center;justify-content:center;transition:.25s}
+.sp-ico svg{width:26px;height:26px;fill:none;stroke:var(--p);stroke-width:1.8;stroke-linecap:round;transition:.25s}
+.sp-card:hover .sp-ico{background:var(--p)}.sp-card:hover .sp-ico svg{stroke:#fff}
+.sp-card h4{font-size:13.5px;font-weight:700;color:var(--td);margin-bottom:3px}
+.sp-card span{font-size:11px;color:var(--tm)}
+
+.dc{background:var(--card);border:1.5px solid var(--bdr);border-radius:var(--r22);overflow:hidden;transition:.25s}
+.dc:hover{box-shadow:var(--s2);border-color:var(--p);transform:translateY(-3px)}
+.dc-cov{height:88px;background:linear-gradient(120deg,var(--pll),#d9f0e0);position:relative}
+.dc-pat{position:absolute;inset:0;opacity:.1;background-image:radial-gradient(circle,var(--p) 1px,transparent 1px);background-size:14px 14px}
+.dc-av{width:62px;height:62px;border-radius:50%;border:4px solid var(--card);background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;position:absolute;bottom:-31px;right:16px;box-shadow:var(--s1)}
+.dc-body{padding:38px 16px 16px}
+.dc-body h3{font-size:14.5px;color:var(--td);font-weight:800;margin-bottom:3px}
+.dspec{color:var(--p);font-weight:700;font-size:11.5px;display:inline-block;background:var(--pl);padding:3px 9px;border-radius:var(--rF);margin-bottom:7px}
+.dc-meta{font-size:11.5px;color:var(--tm);margin-bottom:5px}
+.dc-clin{font-size:11px;color:var(--tm)}
+.dc-clin b{color:var(--p);display:block;font-size:11.5px;margin-top:1px}
+.dc-foot{display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1.5px dashed var(--bds);margin-top:10px}
+.stars{color:#f0a93a;font-size:12px}
+
+.fc{background:var(--card);border:1.5px solid var(--bdr);border-radius:var(--r22);padding:24px;display:flex;gap:14px;transition:.25s}
+.fc:hover{box-shadow:var(--s2);border-color:var(--p)}
+.fc-ico{width:46px;height:46px;border-radius:13px;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.25s}
+.fc-ico svg{width:23px;height:23px;fill:none;stroke:var(--p);stroke-width:1.8;stroke-linecap:round;transition:.25s}
+.fc:hover .fc-ico{background:var(--p)}.fc:hover .fc-ico svg{stroke:#fff}
+.fc h4{font-size:14px;font-weight:800;color:var(--td);margin-bottom:4px}
+.fc p{font-size:12.5px;color:var(--tm);line-height:1.65}
+
+.ph-card{background:var(--card);border:1.5px solid var(--bdr);border-radius:var(--r22);padding:18px;display:flex;align-items:center;gap:13px;transition:.25s;cursor:pointer}
+.ph-card:hover{box-shadow:var(--s2);border-color:var(--p);transform:translateY(-3px)}
+.ph-ico{width:48px;height:48px;border-radius:14px;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ph-ico svg{width:24px;height:24px;fill:none;stroke:var(--p);stroke-width:1.8;stroke-linecap:round}
+.ph-name{font-size:14px;font-weight:800;color:var(--td);margin-bottom:3px}
+.ph-addr{font-size:11.5px;color:var(--tm)}
+.ph-open{font-size:11px;font-weight:700;margin-top:3px}
+
+/* EYEBROW / SH */
+.sh{text-align:center;margin-bottom:36px}
+.eyebrow{display:inline-flex;background:var(--pl);color:var(--p);font-weight:700;font-size:12.5px;padding:7px 16px;border-radius:var(--rF);margin-bottom:12px;border:1px solid rgba(90,174,122,.2)}
+.sh h2{font-size:28px;font-weight:800;color:var(--td);margin-bottom:8px}
+.sh p{font-size:14px;color:var(--tm);line-height:1.7}
+
 /* FOOTER */
 .footer{background:linear-gradient(160deg,var(--pdd),var(--pd));color:#fff;padding:40px 20px 0;width:100%}
 .fg-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:20px;max-width:1100px;margin:0 auto 24px}
@@ -93,11 +147,34 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
 .fg-col p,.fg-col li{font-size:12px;color:rgba(255,255,255,.65);line-height:1.9;list-style:none}
 .foot-bot{border-top:1px solid rgba(255,255,255,.12);padding:12px 0;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;font-size:11.5px;color:rgba(255,255,255,.45);flex-wrap:wrap;gap:6px}
 
-/* ═══ RESPONSIVE ═══ */
+/* ── Doctors page ── */
+.doc-page-grid{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:start}
+.doc-filters{background:var(--card);border:1.5px solid var(--bdr);border-radius:var(--r22);padding:18px;position:sticky;top:88px}
+.doc-filters h3{font-size:14px;font-weight:800;color:var(--td);margin-bottom:14px}
+.filter-group{margin-bottom:16px}
+.filter-group label{font-size:12px;font-weight:700;color:var(--tm);display:block;margin-bottom:6px}
+.filter-group select,.filter-group input{width:100%;padding:9px 12px;border:1.5px solid var(--bdr);border-radius:var(--r8);font-size:13px;color:var(--td);background:var(--bg);font-family:var(--font)}
+.filter-group select:focus,.filter-group input:focus{outline:none;border-color:var(--p)}
+.doc-results-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+
+/* ── Specialties page ── */
+.sp-page-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.sp-page-card{background:var(--card);border:1.5px solid var(--bdr);border-radius:var(--r22);padding:24px;text-align:center;transition:.25s;cursor:pointer;text-decoration:none;display:block}
+.sp-page-card:hover{border-color:var(--p);box-shadow:var(--s2);transform:translateY(-4px)}
+.sp-page-card h3{font-size:14px;font-weight:800;color:var(--td);margin-bottom:4px}
+.sp-page-card p{font-size:12px;color:var(--tm)}
+
+/* ── Scroll highlight (used from home.blade.php) ── */
+.highlight-pulse{animation:highlightPop .8s ease-out}
+@keyframes highlightPop{0%{box-shadow:0 0 0 0 rgba(90,174,122,.5)}60%{box-shadow:0 0 0 12px rgba(90,174,122,.1)}100%{box-shadow:0 0 0 0 rgba(90,174,122,0)}}
+
+/* ═══════ RESPONSIVE ═══════ */
 @media(max-width:900px){
   .nav-tabs{display:none}
   .mob-tabs-bar{display:flex}
   .fg-grid{grid-template-columns:1fr 1fr}
+  .doc-page-grid{grid-template-columns:1fr}
+  .doc-filters{position:static}
 }
 
 @media(max-width:768px){
@@ -129,56 +206,54 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
   .stats{gap:12px!important;justify-content:center!important;padding-top:10px!important}
   .stat b{font-size:15px!important}.stat span{font-size:9px!important}
 
-  /* Sections & Grids - تحويل الأعمدة إلى عمود واحد لمنع التراكم */
-  .sh h2{font-size:17px!important}.sh p{font-size:11.5px!important}
-  .eyebrow{font-size:11px!important}
-  
-  .sp-grid, .sp-grid2, .doc-grid, .feat-grid, .ph-grid, .fg-grid, .sp-docs-grid, .lay-f, .srch, .grid2, .grid3 {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-  }
-  
-  .fp{display:none!important}
+  /* ── Core grids ── */
+  .sp-grid{grid-template-columns:repeat(2,1fr)!important;gap:10px!important}
+  .doc-grid{grid-template-columns:1fr!important}
+  .feat-grid{grid-template-columns:1fr!important}
+  .ph-grid{grid-template-columns:1fr!important}
 
-  /* Booking & Pages Fixes */
-  .book-page, .join-page{padding:10px!important}
-  .book-card, .form-card{padding:14px!important}
-  .book-hero, .join-hero{display:flex!important;flex-direction:column!important;padding:16px!important;text-align:center!important}
+  /* ── Page-specific grids ── */
+  .doc-results-grid{grid-template-columns:1fr!important}
+  .sp-page-grid{grid-template-columns:repeat(2,1fr)!important}
+  .svc-grid{grid-template-columns:1fr!important}
+  .svc-card-featured{transform:none!important}
+  .partner-grid{grid-template-columns:1fr!important}
+  .fg-grid{grid-template-columns:1fr 1fr!important}
+
+  /* ── Booking & join ── */
+  .book-page,.join-page{padding:10px!important}
+  .book-card,.form-card{padding:14px!important}
+  .book-hero,.join-hero{display:flex!important;flex-direction:column!important;padding:16px!important;text-align:center!important}
   .book-hero-anim{display:none!important}
-  .step-info{gap:8px!important;flex-direction:column!important;text-align:center!important}
 
-  /* Consultation */
+  /* ── Consultation ── */
   .cons-lay{grid-template-columns:1fr!important;gap:12px!important}
   .doc-list{max-height:160px;overflow-y:auto}
   .chat-msgs{max-height:240px!important}
 
-  /* Appointments */
+  /* ── Appointments ── */
   .apt-card{flex-direction:column!important;align-items:stretch!important;gap:10px;padding:12px!important}
 
-  /* Doctor page */
+  /* ── Doctor profile ── */
   .doc-hero{padding:14px!important}
   .doc-hero-inner{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important}
   .doc-stats{grid-template-columns:1fr 1fr!important;gap:8px;margin-top:10px;width:100%}
 
-  /* إلغاء إجبار الجداول والأعمدة الثلاثية العريضة */
-  div[style*="grid-template-columns:repeat(3"], 
-  div[style*="grid-template-columns:1fr 1fr 1fr"],
-  div[style*="grid-template-columns:1fr auto"] {
-    grid-template-columns: 1fr !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-  }
-  
-  table, .card, .container, input, select {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
+  /* ── الجداول والـ inputs ── */
+  table,input,select{width:100%!important;max-width:100%!important;box-sizing:border-box!important}
+
+  /* ──
+     تصحيح inline styles التي تستخدم repeat(3,...) أو 1fr auto
+     نحوّلها لعمود واحد عبر CSS class بدلاً من overriding inline styles
+     (الأفضل هو استخدام classes في HTML مباشرة)
+  ── */
+  .mobile-col{display:flex!important;flex-direction:column!important;gap:12px!important}
 }
 
 @media(max-width:480px){
   .hero-ct h1{font-size:16px!important}
+  .sp-grid{grid-template-columns:1fr 1fr!important}
+  .sp-page-grid{grid-template-columns:1fr 1fr!important}
   .foot-bot{flex-direction:column;text-align:center;gap:6px}
 }
 
@@ -295,6 +370,25 @@ function toggleLang() {
     localStorage.setItem('lang','ar');
   }
 }
+
+// ══ Pharmacies page: highlight card from ?highlight= param ══
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const hl = params.get('highlight');
+  if (!hl) return;
+  // نستني شوية عشان الـ DOM يكتمل
+  setTimeout(function(){
+    document.querySelectorAll('.ph-card,[data-name]').forEach(function(el){
+      const name = el.getAttribute('data-name') || el.querySelector('.ph-name')?.textContent;
+      if (name && name.trim() === hl.trim()) {
+        el.scrollIntoView({behavior:'smooth', block:'center'});
+        el.classList.add('highlight-pulse');
+        el.style.border = '2px solid var(--p)';
+        setTimeout(function(){ el.classList.remove('highlight-pulse'); }, 1000);
+      }
+    });
+  }, 500);
+})();
 </script>
 @yield('scripts')
 </body>
