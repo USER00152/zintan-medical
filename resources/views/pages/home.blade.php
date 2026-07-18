@@ -139,10 +139,6 @@
       <div class="hero-qs">احجز موعدك بثوانٍ وودّع طوابير الانتظار</div>
       <p class="hero-p">منصة إلكترونية تجمع أفضل الأطباء والعيادات في مدينة الزنتان — احجز موعدك وتواصل مع طبيبك بكل سهولة وأمان.</p>
       <div class="hero-feats">
-        <div class="hf"><span class="hf-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>حجز المواعيد إلكترونياً دون انتظار</div>
-        <div class="hf"><span class="hf-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>نخبة من أطباء مدينة الزنتان</div>
-        <div class="hf"><span class="hf-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>بياناتك الطبية محمية وآمنة</div>
-        <div class="hf"><span class="hf-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>عيادات في أحياء مدينة الزنتان</div>
       </div>
       <div class="hero-btns">
         <a href="{{ route('booking') }}" class="btn bp" style="font-size:15px;padding:14px 28px">احجز موعداً الآن</a>
