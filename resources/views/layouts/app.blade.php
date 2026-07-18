@@ -27,11 +27,11 @@
   --bg:#1A1225;--card:#231830;--bdr:#3D2D55;--bds:#2D2040;
   --s1:0 2px 10px rgba(155,133,204,.2);
   --s2:0 8px 28px rgba(155,133,204,.3);
-  --s3:0 20px 52px rgba(155,133,204,.4);
   --sp:0 8px 28px rgba(155,133,204,.5);
 }
 [data-theme="dark"] .nav{background:rgba(35,24,48,.97);border-color:#3D2D55}
 [data-theme="dark"] .mob-menu{background:#231830;border-color:#3D2D55}
+[data-theme="dark"] .mob-item-desc{background:#2D2040}
 [data-theme="dark"] .footer{background:linear-gradient(160deg,#130D1E,#231830)}
 [data-theme="dark"] .sp-card,[data-theme="dark"] .dc,[data-theme="dark"] .fc,
 [data-theme="dark"] .ph-card,[data-theme="dark"] .dl-card,[data-theme="dark"] .apt-card,
@@ -41,9 +41,7 @@
 [data-theme="dark"] input,[data-theme="dark"] select,[data-theme="dark"] textarea{background:#2D2040!important;color:var(--td)!important;border-color:#3D2D55!important}
 
 body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);overflow-x:hidden}
-img{max-width:100%}
 
-/* BUTTONS */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--rF);font-weight:700;font-size:14px;border:2px solid transparent;font-family:var(--font);cursor:pointer;transition:.25s;text-decoration:none}
 .bp{background:var(--p);color:#fff;box-shadow:var(--sp)}.bp:hover{background:var(--pd);transform:translateY(-2px)}
 .bo{background:var(--card);color:var(--p);border-color:var(--bdr)}.bo:hover{border-color:var(--p);background:var(--pl)}
@@ -59,15 +57,13 @@ img{max-width:100%}
 .ntabs{display:flex;gap:2px;align-items:center}
 .nt{padding:8px 11px;border-radius:var(--rF);font-weight:700;font-size:12.5px;color:var(--tm);border:none;background:none;font-family:var(--font);cursor:pointer;transition:.2s;text-decoration:none;display:inline-block;white-space:nowrap}
 .nt:hover,.nt.on{color:var(--p);background:var(--pl)}
-.nt.bk{background:var(--p);color:#fff;padding:8px 14px}.nt.bk:hover{background:var(--pd)}
+.nt.bk{background:var(--p);color:#fff}.nt.bk:hover{background:var(--pd)}
 .nav-right{display:flex;align-items:center;gap:6px;flex-shrink:0}
 .icon-btn{width:34px;height:34px;border-radius:50%;background:var(--pl);border:1.5px solid var(--bdr);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;flex-shrink:0}
 .icon-btn svg{width:16px;height:16px;fill:none;stroke:var(--p);stroke-width:2;stroke-linecap:round}
 .lang-btn{height:32px;padding:0 10px;border-radius:var(--rF);background:var(--pl);border:1.5px solid var(--bdr);display:flex;align-items:center;gap:5px;cursor:pointer;font-size:11.5px;font-weight:800;color:var(--p);font-family:var(--font);white-space:nowrap}
 .lang-btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 .uav{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;border:2px solid var(--pl);flex-shrink:0}
-
-/* HAMBURGER */
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;border:none;background:none;flex-shrink:0}
 .hamburger span{width:22px;height:2.5px;background:var(--p);border-radius:2px;transition:.3s;display:block}
 .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
@@ -75,12 +71,33 @@ img{max-width:100%}
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
 /* MOBILE MENU */
-.mob-menu{display:none;position:fixed;top:60px;right:0;left:0;background:var(--card);border-bottom:2px solid var(--bds);z-index:199;padding:10px;box-shadow:0 8px 32px rgba(0,0,0,.1);flex-direction:column;gap:4px;max-height:calc(100vh - 60px);overflow-y:auto}
+.mob-menu{display:none;position:fixed;top:60px;right:0;left:0;background:var(--card);border-bottom:2px solid var(--bds);z-index:199;padding:10px;box-shadow:0 8px 32px rgba(0,0,0,.12);flex-direction:column;gap:4px;max-height:calc(100vh - 60px);overflow-y:auto}
 .mob-menu.open{display:flex;animation:slideDown .2s ease}
 @keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
-.mob-nt{padding:12px 16px;border-radius:var(--r8);font-weight:700;font-size:14px;color:var(--tm);text-decoration:none;display:block;transition:.2s;font-family:var(--font)}
-.mob-nt:hover,.mob-nt.on{color:var(--p);background:var(--pl)}
-.mob-nt.bk{background:var(--p);color:#fff;text-align:center;border-radius:var(--rF);margin-top:6px;padding:13px}
+
+/* كل عنصر في القائمة له سهم وشرح */
+.mob-item{border-radius:var(--r8);overflow:hidden}
+.mob-item-btn{width:100%;display:flex;align-items:center;justify-content:space-between;padding:12px 14px;font-weight:700;font-size:13.5px;color:var(--tm);text-decoration:none;background:none;border:none;font-family:var(--font);cursor:pointer;transition:.2s;text-align:right}
+.mob-item-btn:hover,.mob-item-btn.on{color:var(--p);background:var(--pl)}
+.mob-item-btn.on{border-right:3px solid var(--p)}
+.mob-item-left{display:flex;align-items:center;gap:10px}
+.mob-item-arrow{width:20px;height:20px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.3s}
+.mob-item-arrow svg{width:12px;height:12px;fill:none;stroke:var(--tm);stroke-width:2;stroke-linecap:round;transition:.3s}
+.mob-item-btn.active .mob-item-arrow{background:var(--pl);transform:rotate(180deg)}
+.mob-item-btn.active .mob-item-arrow svg{stroke:var(--p)}
+
+/* الشرح المنسدل */
+.mob-item-desc{display:none;background:var(--bg);border-top:1px solid var(--bds);padding:12px 14px}
+.mob-item-desc.open{display:block;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.mob-item-desc p{font-size:12.5px;color:var(--tm);line-height:1.7;margin-bottom:10px}
+.mob-item-desc a{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--p);color:#fff;border-radius:var(--rF);font-size:12.5px;font-weight:700;text-decoration:none;transition:.2s}
+.mob-item-desc a:hover{background:var(--pd)}
+.mob-item-desc a svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
+
+/* زر احجز موعد في الموبايل */
+.mob-book{display:block;margin:6px 0 2px;padding:13px;background:var(--p);color:#fff;text-align:center;border-radius:var(--rF);font-size:14px;font-weight:800;text-decoration:none;transition:.2s}
+.mob-book:hover{background:var(--pd)}
 
 /* PG HEADER */
 .pg-hd{background:linear-gradient(180deg,var(--pll),var(--bg));padding:20px 16px 16px;border-bottom:1px solid var(--bds)}
@@ -102,113 +119,70 @@ img{max-width:100%}
 .fg-col p,.fg-col li{font-size:12px;color:rgba(255,255,255,.65);line-height:1.9;list-style:none}
 .foot-bot{border-top:1px solid rgba(255,255,255,.12);padding:12px 0;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;font-size:11.5px;color:rgba(255,255,255,.45);flex-wrap:wrap;gap:6px}
 
-/* ═══ DESKTOP ═══ */
-@media(min-width:901px){
-  .hamburger{display:none!important}
-  .mob-menu{display:none!important}
-  .ntabs{display:flex!important}
-}
-
-/* ═══ TABLET ═══ */
-@media(max-width:900px){
-  .ntabs{display:none}
-  .hamburger{display:flex}
-  .fg-grid{grid-template-columns:1fr 1fr}
-}
-
-/* ═══ MOBILE ═══ */
+/* RESPONSIVE */
+@media(min-width:901px){.hamburger{display:none!important}.mob-menu{display:none!important}.ntabs{display:flex!important}}
+@media(max-width:900px){.ntabs{display:none}.hamburger{display:flex}.fg-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){
   .nav{height:56px;padding:0 12px}
-  .lm{width:32px;height:32px}
-  .ln{font-size:13.5px}
-  .ls{display:none}
+  .lm{width:32px;height:32px}.ln{font-size:13.5px}.ls{display:none}
   .lang-btn{padding:0 8px;height:30px;font-size:11px}
-  .icon-btn{width:30px;height:30px}
-  .icon-btn svg{width:14px;height:14px}
+  .icon-btn{width:30px;height:30px}.icon-btn svg{width:14px;height:14px}
   .uav{width:30px;height:30px;font-size:11px}
   .mob-menu{top:56px}
-
-  /* Hero */
   .hero{padding:20px 14px 32px!important}
-  .hero-in{display:block!important}
-  .hero-vis{display:none!important}
-  .hero-ct h1{font-size:22px!important;letter-spacing:0!important}
-  .hero-qs{font-size:13px!important}
-  .hero-p{font-size:13px!important;margin-bottom:12px!important}
-  .hero-feats{gap:8px!important;margin-bottom:16px!important}
-  .hf{font-size:12.5px!important}
-  .hbadge{font-size:11px!important;padding:5px 12px!important}
-  .hero-btns{flex-direction:column!important;gap:8px!important;margin-bottom:20px!important}
-  .hero-btns .btn{width:100%!important;justify-content:center!important;font-size:14px!important;padding:13px!important}
-  .stats{gap:10px!important;flex-wrap:wrap!important;padding-top:14px!important}
-  .stat b{font-size:19px!important}
-  .stat span{font-size:10px!important}
-
-  /* Sections */
-  .sec{padding:24px 14px!important}
-  .sh h2{font-size:19px!important}
-  .sh p{font-size:12.5px!important}
-
-  /* Grids */
-  .sp-grid{grid-template-columns:1fr 1fr!important;gap:10px!important}
-  .sp-grid2{grid-template-columns:1fr 1fr!important;gap:10px!important}
+  .hero-in{display:grid!important;grid-template-columns:1fr 1fr!important;gap:12px!important;align-items:center!important}
+  .hero-vis{display:flex!important;align-items:center!important;justify-content:center!important}
+  .hero-ct h1{font-size:19px!important;letter-spacing:0!important}
+  .hero-qs{font-size:12px!important}
+  .hero-p{font-size:12px!important;margin-bottom:10px!important}
+  .hero-feats{gap:6px!important;margin-bottom:12px!important}
+  .hf{font-size:11px!important}
+  .hbadge{font-size:10px!important;padding:4px 10px!important}
+  .hero-btns{flex-direction:column!important;gap:7px!important;margin-bottom:16px!important}
+  .hero-btns .btn{width:100%!important;justify-content:center!important;font-size:13px!important;padding:11px!important}
+  .stats{gap:8px!important;flex-wrap:wrap!important;padding-top:12px!important}
+  .stat b{font-size:16px!important}.stat span{font-size:9px!important}
+  .sec{padding:22px 14px!important}
+  .sh h2{font-size:17px!important}.sh p{font-size:12px!important}
+  .sp-grid{grid-template-columns:1fr 1fr!important;gap:9px!important}
+  .sp-grid2{grid-template-columns:1fr 1fr!important;gap:9px!important}
   .doc-grid{grid-template-columns:1fr!important}
-  .feat-grid{grid-template-columns:1fr!important}
-  .ph-grid{grid-template-columns:1fr!important}
+  .feat-grid{grid-template-columns:1fr 1fr!important;gap:9px!important}
+  .ph-grid{grid-template-columns:1fr 1fr!important;gap:8px!important}
   .fg-grid{grid-template-columns:1fr!important}
   .sp-docs-grid{grid-template-columns:1fr!important}
-  .ph-grid{grid-template-columns:1fr 1fr!important}
-
-  /* Doctors page */
   .lay-f{grid-template-columns:1fr!important}
   .fp{display:none!important}
   .srch{grid-template-columns:1fr!important;gap:8px!important}
-
-  /* Booking */
   .book-page{padding:12px!important}
   .book-card{padding:16px!important}
-  .book-hero{display:block!important;padding:22px!important}
+  .book-hero{display:block!important;padding:20px!important}
   .book-hero-anim{display:none!important}
   .grid2,.grid3{grid-template-columns:1fr!important}
-
-  /* Consultation */
   .cons-lay{grid-template-columns:1fr!important}
   .doc-list{max-height:180px;overflow-y:auto}
-  .chat-msgs{max-height:260px!important}
-
-  /* Appointments */
   .apt-card{flex-wrap:wrap;gap:8px;padding:14px!important}
-  .apt-acts{flex-direction:row!important}
-
-  /* Doctor hero */
-  .doc-hero{padding:18px!important}
+  .doc-hero{padding:16px!important}
   .doc-hero-inner{display:block!important}
-  .doc-stats{grid-template-columns:1fr 1fr!important;margin-top:14px}
-
-  /* Join */
+  .doc-stats{grid-template-columns:1fr 1fr!important;margin-top:12px}
   .join-page{padding:12px!important}
-  .join-hero{padding:22px!important;display:block!important}
+  .join-hero{padding:20px!important;display:block!important}
   .type-grid{grid-template-columns:1fr!important}
   .form-card{padding:16px!important}
-
-  /* Services */
-  div[style*="grid-template-columns:repeat(3"]{display:flex!important;flex-direction:column!important;gap:14px!important}
-  div[style*="grid-template-columns:1fr auto"]{display:flex!important;flex-direction:column!important;gap:14px!important}
-  div[style*="grid-template-columns:1fr 1fr 1fr"]{display:flex!important;flex-direction:column!important;gap:14px!important}
-
-  /* Pharmacies */
+  /* الخدمات والشراكة 3 أعمدة على الموبايل */
+  div[style*="grid-template-columns:repeat(3"]{display:grid!important;grid-template-columns:1fr 1fr 1fr!important;gap:8px!important}
+  div[style*="grid-template-columns:1fr auto"]{display:flex!important;flex-direction:column!important;gap:12px!important}
+  div[style*="grid-template-columns:1fr 1fr 1fr"]{display:grid!important;grid-template-columns:1fr 1fr 1fr!important;gap:8px!important}
   .ph-search{grid-template-columns:1fr!important;gap:8px!important}
-  .ph-grid{grid-template-columns:1fr!important}
 }
-
 @media(max-width:480px){
   .sp-grid,.sp-grid2{grid-template-columns:1fr 1fr!important}
+  .feat-grid{grid-template-columns:1fr 1fr!important}
   .ph-grid{grid-template-columns:1fr!important}
+  .fg-grid{grid-template-columns:1fr!important}
+  .hero-ct h1{font-size:17px!important}
   .foot-bot{flex-direction:column;text-align:center}
-  .hero-ct h1{font-size:20px!important}
-  .pg-hd h1{font-size:18px!important}
 }
-
 @yield('styles')
 </style>
 </head>
@@ -221,13 +195,13 @@ img{max-width:100%}
   </a>
 
   <div class="ntabs">
-    <a href="{{ route('home') }}" class="nt {{ request()->routeIs('home') || request()->routeIs('home.page') ? 'on' : '' }}" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
-    <a href="{{ route('doctors') }}" class="nt {{ request()->routeIs('doctors') ? 'on' : '' }}" data-ar="الأطباء" data-en="Doctors">الأطباء</a>
-    <a href="{{ route('specialties') }}" class="nt {{ request()->routeIs('specialties') ? 'on' : '' }}" data-ar="التخصصات" data-en="Specialties">التخصصات</a>
-    <a href="{{ route('pharmacies') }}" class="nt {{ request()->routeIs('pharmacies') ? 'on' : '' }}" data-ar="الصيدليات" data-en="Pharmacies">الصيدليات</a>
-    <a href="{{ route('appointments') }}" class="nt {{ request()->routeIs('appointments') ? 'on' : '' }}" data-ar="مواعيدي" data-en="Appointments">مواعيدي</a>
-    <a href="{{ route('consultation') }}" class="nt {{ request()->routeIs('consultation') ? 'on' : '' }}" data-ar="تواصل مع طبيبك" data-en="Consult">تواصل مع طبيبك</a>
-    <a href="{{ route('booking') }}" class="nt bk" data-ar="احجز موعد" data-en="Book Now">احجز موعد</a>
+    <a href="{{ route('home') }}" class="nt {{ request()->routeIs('home') || request()->routeIs('home.page') ? 'on' : '' }}">الرئيسية</a>
+    <a href="{{ route('doctors') }}" class="nt {{ request()->routeIs('doctors') ? 'on' : '' }}">الأطباء</a>
+    <a href="{{ route('specialties') }}" class="nt {{ request()->routeIs('specialties') ? 'on' : '' }}">التخصصات</a>
+    <a href="{{ route('pharmacies') }}" class="nt {{ request()->routeIs('pharmacies') ? 'on' : '' }}">الصيدليات</a>
+    <a href="{{ route('appointments') }}" class="nt {{ request()->routeIs('appointments') ? 'on' : '' }}">مواعيدي</a>
+    <a href="{{ route('consultation') }}" class="nt {{ request()->routeIs('consultation') ? 'on' : '' }}">تواصل مع طبيبك</a>
+    <a href="{{ route('booking') }}" class="nt bk">احجز موعد</a>
   </div>
 
   <div class="nav-right">
@@ -240,20 +214,90 @@ img{max-width:100%}
       <svg id="sun-icon" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
     </button>
     <div class="uav" id="user-avatar">م</div>
-    <button class="hamburger" onclick="toggleMenu()" id="hamburger" aria-label="القائمة">
+    <button class="hamburger" onclick="toggleMenu()" id="hamburger">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
+<!-- MOBILE MENU مع شرح لكل صفحة -->
 <div class="mob-menu" id="mob-menu">
-  <a href="{{ route('home') }}" class="mob-nt {{ request()->routeIs('home') ? 'on' : '' }}" data-ar="🏠 الرئيسية" data-en="🏠 Home">🏠 الرئيسية</a>
-  <a href="{{ route('doctors') }}" class="mob-nt {{ request()->routeIs('doctors') ? 'on' : '' }}" data-ar="👨‍⚕️ الأطباء" data-en="👨‍⚕️ Doctors">👨‍⚕️ الأطباء</a>
-  <a href="{{ route('specialties') }}" class="mob-nt {{ request()->routeIs('specialties') ? 'on' : '' }}" data-ar="🔬 التخصصات" data-en="🔬 Specialties">🔬 التخصصات</a>
-  <a href="{{ route('pharmacies') }}" class="mob-nt {{ request()->routeIs('pharmacies') ? 'on' : '' }}" data-ar="💊 الصيدليات" data-en="💊 Pharmacies">💊 الصيدليات</a>
-  <a href="{{ route('appointments') }}" class="mob-nt {{ request()->routeIs('appointments') ? 'on' : '' }}" data-ar="📅 مواعيدي" data-en="📅 Appointments">📅 مواعيدي</a>
-  <a href="{{ route('consultation') }}" class="mob-nt {{ request()->routeIs('consultation') ? 'on' : '' }}" data-ar="💬 تواصل مع طبيبك" data-en="💬 Consult Doctor">💬 تواصل مع طبيبك</a>
-  <a href="{{ route('booking') }}" class="mob-nt bk" data-ar="احجز موعد الآن ←" data-en="Book Now →">احجز موعد الآن ←</a>
+
+  <!-- الرئيسية -->
+  <div class="mob-item">
+    <button class="mob-item-btn {{ request()->routeIs('home') ? 'on' : '' }}" onclick="toggleDesc(this,'desc-home')">
+      <span class="mob-item-left">🏠 الرئيسية</span>
+      <span class="mob-item-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+    </button>
+    <div class="mob-item-desc" id="desc-home">
+      <p>الصفحة الرئيسية للمنصة — تجد فيها الأطباء والتخصصات والصيدليات وكل ما تحتاجه في مكان واحد.</p>
+      <a href="{{ route('home') }}"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>اذهب للرئيسية</a>
+    </div>
+  </div>
+
+  <!-- الأطباء -->
+  <div class="mob-item">
+    <button class="mob-item-btn {{ request()->routeIs('doctors') ? 'on' : '' }}" onclick="toggleDesc(this,'desc-docs')">
+      <span class="mob-item-left">👨‍⚕️ الأطباء</span>
+      <span class="mob-item-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+    </button>
+    <div class="mob-item-desc" id="desc-docs">
+      <p>تصفّح قائمة الأطباء المتاحين في مدينة الزنتان — ابحث بالاسم أو التخصص أو العيادة واحجز موعدك مباشرة.</p>
+      <a href="{{ route('doctors') }}"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>تصفّح الأطباء</a>
+    </div>
+  </div>
+
+  <!-- التخصصات -->
+  <div class="mob-item">
+    <button class="mob-item-btn {{ request()->routeIs('specialties') ? 'on' : '' }}" onclick="toggleDesc(this,'desc-specs')">
+      <span class="mob-item-left">🔬 التخصصات</span>
+      <span class="mob-item-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+    </button>
+    <div class="mob-item-desc" id="desc-specs">
+      <p>اختر التخصص الطبي الذي تحتاجه — باطنة، أسنان، أطفال، عيون، وأكثر من 8 تخصصات متاحة.</p>
+      <a href="{{ route('specialties') }}"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>تصفّح التخصصات</a>
+    </div>
+  </div>
+
+  <!-- الصيدليات -->
+  <div class="mob-item">
+    <button class="mob-item-btn {{ request()->routeIs('pharmacies') ? 'on' : '' }}" onclick="toggleDesc(this,'desc-pharma')">
+      <span class="mob-item-left">💊 الصيدليات</span>
+      <span class="mob-item-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+    </button>
+    <div class="mob-item-desc" id="desc-pharma">
+      <p>تواصل مع الصيدليات المعتمدة في الزنتان — استفسر عن الدواء وتحقق من توفره وتواصل مع الصيدلاني مباشرة.</p>
+      <a href="{{ route('pharmacies') }}"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>تصفّح الصيدليات</a>
+    </div>
+  </div>
+
+  <!-- مواعيدي -->
+  <div class="mob-item">
+    <button class="mob-item-btn {{ request()->routeIs('appointments') ? 'on' : '' }}" onclick="toggleDesc(this,'desc-apts')">
+      <span class="mob-item-left">📅 مواعيدي</span>
+      <span class="mob-item-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+    </button>
+    <div class="mob-item-desc" id="desc-apts">
+      <p>تابع مواعيدك الطبية القادمة والسابقة — يمكنك تأكيد الموعد أو إلغاؤه أو تقييم الطبيب بعد الزيارة.</p>
+      <a href="{{ route('appointments') }}"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>عرض مواعيدي</a>
+    </div>
+  </div>
+
+  <!-- تواصل مع طبيبك -->
+  <div class="mob-item">
+    <button class="mob-item-btn {{ request()->routeIs('consultation') ? 'on' : '' }}" onclick="toggleDesc(this,'desc-cons')">
+      <span class="mob-item-left">💬 تواصل مع طبيبك</span>
+      <span class="mob-item-arrow"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+    </button>
+    <div class="mob-item-desc" id="desc-cons">
+      <p>أرسل رسائل وتقارير مباشرة لطبيبك — شارك نتائج التحاليل والأشعة واحصل على رد سريع من طبيبك.</p>
+      <a href="{{ route('consultation') }}"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>تواصل الآن</a>
+    </div>
+  </div>
+
+  <!-- احجز موعد -->
+  <a href="{{ route('booking') }}" class="mob-book" onclick="toggleMenu()">احجز موعدك الآن ←</a>
+
 </div>
 
 @yield('content')
@@ -265,16 +309,13 @@ img{max-width:100%}
         <div class="lm"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
         <div class="ln" style="color:#fff;font-size:15px">منصة <span style="color:rgba(255,255,255,.7)">الزنتان</span></div>
       </div>
-      <p data-ar="منصتك الموثوقة لحجز المواعيد الطبية في مدينة الزنتان، ليبيا." data-en="Your trusted platform for medical appointments in Zintan, Libya.">منصتك الموثوقة لحجز المواعيد الطبية في مدينة الزنتان، ليبيا.</p>
+      <p>منصتك الموثوقة لحجز المواعيد الطبية في مدينة الزنتان، ليبيا.</p>
     </div>
-    <div class="fg-col"><h4 data-ar="روابط سريعة" data-en="Quick Links">روابط سريعة</h4><ul><li data-ar="الرئيسية" data-en="Home">الرئيسية</li><li data-ar="الأطباء" data-en="Doctors">الأطباء</li><li data-ar="التخصصات" data-en="Specialties">التخصصات</li><li data-ar="الصيدليات" data-en="Pharmacies">الصيدليات</li></ul></div>
-    <div class="fg-col"><h4 data-ar="حسابي" data-en="My Account">حسابي</h4><ul><li data-ar="مواعيدي" data-en="My Appointments">مواعيدي</li><li data-ar="تواصل مع طبيبك" data-en="Consult Doctor">تواصل مع طبيبك</li><li data-ar="احجز موعد" data-en="Book Appointment">احجز موعد</li></ul></div>
-    <div class="fg-col"><h4 data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h4><ul><li>مدينة الزنتان، ليبيا</li><li>info@zintanmed.ly</li><li>091-000-0000</li></ul></div>
+    <div class="fg-col"><h4>روابط سريعة</h4><ul><li>الرئيسية</li><li>الأطباء</li><li>التخصصات</li><li>الصيدليات</li></ul></div>
+    <div class="fg-col"><h4>حسابي</h4><ul><li>مواعيدي</li><li>تواصل مع طبيبك</li><li>احجز موعد</li></ul></div>
+    <div class="fg-col"><h4>تواصل معنا</h4><ul><li>مدينة الزنتان، ليبيا</li><li>info@zintanmed.ly</li><li>091-000-0000</li></ul></div>
   </div>
-  <div class="foot-bot">
-    <span data-ar="© 2026 منصة الزنتان الطبية" data-en="© 2026 Zintan Medical Platform">© 2026 منصة الزنتان الطبية</span>
-    <span data-ar="مشروع تخرج" data-en="Graduation Project">مشروع تخرج</span>
-  </div>
+  <div class="foot-bot"><span>© 2026 منصة الزنتان الطبية</span><span>مشروع تخرج</span></div>
 </footer>
 
 <script>
@@ -287,16 +328,17 @@ if (user && user.name) {
   document.getElementById('user-avatar').textContent = user.name.charAt(0);
 }
 
-// Theme
 if (localStorage.getItem('theme') === 'dark') {
   html.setAttribute('data-theme', 'dark');
   document.getElementById('moon-icon').style.display = 'none';
   document.getElementById('sun-icon').style.display = 'block';
 }
 
-// Language
-const savedLang = localStorage.getItem('lang') || 'ar';
-if (savedLang === 'en') applyLang('en');
+if (localStorage.getItem('lang') === 'en') {
+  html.setAttribute('lang', 'en');
+  html.setAttribute('dir', 'ltr');
+  document.getElementById('lang-label').textContent = 'AR';
+}
 
 function toggleDark() {
   const isDark = html.getAttribute('data-theme') === 'dark';
@@ -314,25 +356,18 @@ function toggleDark() {
 }
 
 function toggleLang() {
-  const current = localStorage.getItem('lang') || 'ar';
-  const next = current === 'ar' ? 'en' : 'ar';
-  applyLang(next);
-  localStorage.setItem('lang', next);
-}
-
-function applyLang(lang) {
-  if (lang === 'en') {
-    html.setAttribute('lang', 'en');
-    html.setAttribute('dir', 'ltr');
+  const isAr = (localStorage.getItem('lang') || 'ar') === 'ar';
+  if (isAr) {
+    html.setAttribute('lang','en');
+    html.setAttribute('dir','ltr');
     document.getElementById('lang-label').textContent = 'AR';
+    localStorage.setItem('lang','en');
   } else {
-    html.setAttribute('lang', 'ar');
-    html.setAttribute('dir', 'rtl');
+    html.setAttribute('lang','ar');
+    html.setAttribute('dir','rtl');
     document.getElementById('lang-label').textContent = 'EN';
+    localStorage.setItem('lang','ar');
   }
-  document.querySelectorAll('[data-ar][data-en]').forEach(function(el) {
-    el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-ar');
-  });
 }
 
 function toggleMenu() {
@@ -345,6 +380,19 @@ function toggleMenu() {
   } else {
     menu.classList.add('open');
     btn.classList.add('open');
+  }
+}
+
+function toggleDesc(btn, descId) {
+  const desc = document.getElementById(descId);
+  const isOpen = desc.classList.contains('open');
+  // أغلق كل الشروح
+  document.querySelectorAll('.mob-item-desc').forEach(function(d){d.classList.remove('open')});
+  document.querySelectorAll('.mob-item-btn').forEach(function(b){b.classList.remove('active')});
+  // افتح اللي ضغطناه لو كان مغلق
+  if (!isOpen) {
+    desc.classList.add('open');
+    btn.classList.add('active');
   }
 }
 
