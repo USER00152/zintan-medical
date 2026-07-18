@@ -121,7 +121,7 @@
         <div class="stat"><b>3</b><span>عيادات شريكة</span></div>
         <div class="stat"><b>35+</b><span>موعد متاح</span></div>
       </div>
-    </div>
+    </div> 
 
     <div style="position:relative;display:flex;align-items:center;justify-content:center">
       <div style="width:380px;height:380px;position:relative">
@@ -254,7 +254,7 @@
             إلغاء وإعادة جدولة مجاناً
           </div>
         </div>
-      </div>
+      </div> 
 
       {{-- خدمة 2 --}}
       <div style="background:linear-gradient(160deg,var(--pdd),var(--p));border-radius:24px;padding:32px;transition:.25s;position:relative;overflow:hidden;transform:translateY(-8px);box-shadow:0 20px 50px rgba(106,158,117,.35)" onmouseover="this.style.transform='translateY(-14px)'" onmouseout="this.style.transform='translateY(-8px)'">
@@ -317,6 +317,7 @@
     </div>
   </div>
 </div>
+
 <div class="sec">
   <div class="si">
     <div class="sh"><span class="eyebrow">الصيدليات المعتمدة</span><h2>صيدليات الزنتان</h2><p>تواصل مع الصيدليات المعتمدة واحصل على دوائك بسهولة</p></div>
@@ -330,7 +331,7 @@
     </div>
   </div>
 </div>
-        
+       
 <div class="sec" style="background:var(--card)">
   <div class="si">
     <div class="sh"><span class="eyebrow">لماذا منصتنا؟</span><h2>كل ما تحتاجه في مكان واحد</h2><p>منصة متكاملة تربط المرضى بالأطباء في الزنتان</p></div>
@@ -344,10 +345,6 @@
     </div>
   </div>
 </div>
-
-
-
-      
 
 {{-- قسم الشراكة --}}
 <div class="sec" style="background:var(--card)">
@@ -407,8 +404,6 @@
 
   </div>
 </div>
-
-
 @endsection
 
 @section('scripts')

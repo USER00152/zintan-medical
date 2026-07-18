@@ -29,7 +29,7 @@
 }
 [data-theme="dark"] .nav{background:rgba(35,24,48,.97);border-color:#3D2D55}
 [data-theme="dark"] .mob-tabs-bar{background:#231830;border-color:#3D2D55}
-[data-theme="dark"] .footer{background:linear-gradient(160deg,#130D1E,#231830)}
+[data-theme="dark"] .footer{background:linear-gradient(160deg,#130D1E,#231830);border-top-color:#3D2D55}
 [data-theme="dark"] .sp-card,[data-theme="dark"] .dc,[data-theme="dark"] .fc,
 [data-theme="dark"] .ph-card,[data-theme="dark"] .dl-card,[data-theme="dark"] .apt-card,
 [data-theme="dark"] .book-card,[data-theme="dark"] .fp,[data-theme="dark"] .doc-list,
@@ -73,6 +73,36 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
 .mob-t:hover,.mob-t.on{color:var(--p);background:var(--pl)}
 .mob-t.bk{background:var(--p);color:#fff}
 
+/* Hero Section Optimized */
+.hero{padding:60px 20px;max-width:1100px;margin:0 auto;width:100%}
+.hero-in{display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px;align-items:center}
+.hero-ct{display:flex;flex-direction:column}
+.hero-vis{display:flex;justify-content:center;align-items:center}
+/* تعديل لتصغير الرسمة لتكون أنيقة وجنب الأزرار في الهواتف والكواشف */
+.hero-vis img, .hero-vis svg{max-width:240px;height:auto;object-fit:contain}
+
+/* الهيكلية الهرمية للمربعات (خدماتنا + انضم إلينا) */
+.hierarchical-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.hierarchical-grid .top-hero-card {
+  grid-column: 1 / span 2;
+  margin-bottom: 5px;
+}
+
+/* صيدليات كل 2 جنب بعض */
+.pharmacies-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
 /* PG HEADER */
 .pg-hd{background:linear-gradient(180deg,var(--pll),var(--bg));padding:20px 20px 16px;border-bottom:1px solid var(--bds);width:100%}
 .bc{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--tm);margin-bottom:6px;font-weight:600}
@@ -86,12 +116,17 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
 .iw-ic{position:absolute;top:50%;left:12px;transform:translateY(-50%);color:var(--tl);pointer-events:none}
 .iw-ic svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
 
-/* FOOTER */
-.footer{background:linear-gradient(160deg,var(--pdd),var(--pd));color:#fff;padding:40px 20px 0;width:100%}
-.fg-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:20px;max-width:1100px;margin:0 auto 24px}
-.fg-col h4{font-size:13px;font-weight:800;color:rgba(255,255,255,.95);margin-bottom:10px}
-.fg-col p,.fg-col li{font-size:12px;color:rgba(255,255,255,.65);line-height:1.9;list-style:none}
-.foot-bot{border-top:1px solid rgba(255,255,255,.12);padding:12px 0;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;font-size:11.5px;color:rgba(255,255,255,.45);flex-wrap:wrap;gap:6px}
+/* FOOTER الاحترافي المتناسق */
+.footer{background:linear-gradient(180deg, var(--pll), var(--card));border-top:2px solid var(--bds);color:var(--td);padding:50px 20px 0;width:100%}
+.fg-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px;max-width:1100px;margin:0 auto 30px}
+.fg-col h4{font-size:14px;font-weight:900;color:var(--pdd);margin-bottom:15px;position:relative;padding-bottom:5px}
+.fg-col h4::after{content:'';position:absolute;bottom:0;right:0;width:30px;height:2px;background:var(--p)}
+.fg-col p, .fg-col li{font-size:13px;color:var(--tm);line-height:2;list-style:none}
+.fg-col ul{display:flex;flex-direction:column;gap:8px}
+.fg-col a{color:var(--tm);text-decoration:none;transition:0.2s}
+.fg-col a:hover{color:var(--p);padding-right:4px}
+.foot-bot{border-top:1px solid var(--bds);padding:20px 0;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;font-size:12px;color:var(--tm);flex-wrap:wrap;gap:10px}
+.foot-bot span{font-weight:600}
 
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:900px){
@@ -112,12 +147,13 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
   .si{padding:0 12px!important}
   .pg-hd{padding:16px 12px!important}
   .sec{padding:20px 12px!important}
-  .footer{padding:32px 12px 0!important}
 
-  /* Hero */
-  .hero{padding:18px 12px 28px!important}
-  .hero-in{display:flex!important;flex-direction:column!important;gap:15px!important;align-items:center!important}
-  .hero-vis{display:none!important}
+  /* ترتيب الهيرو بالموبايل لـ رفع الرسمة بجانب محتوى الحجز وجعلها صغيرة */
+  .hero{padding:20px 12px!important}
+  .hero-in{display:flex!important;flex-direction:column-reverse!important;gap:15px!important;align-items:center!important}
+  .hero-vis{display:block!important;margin-bottom:10px;text-align:center}
+  .hero-vis img, .hero-vis svg{max-width:130px!important} /* تصغير الرسمة على الموبايل جداً كي لا تضايق */
+  
   .hero-ct h1{font-size:18px!important;text-align:center!important}
   .hero-qs{font-size:11.5px!important;text-align:center!important}
   .hero-p{font-size:11.5px!important;margin-bottom:10px!important;text-align:center!important}
@@ -126,60 +162,26 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
   .hbadge{font-size:9.5px!important;padding:3px 9px!important;margin:0 auto 8px!important;display:table!important}
   .hero-btns{flex-direction:column!important;gap:8px!important;margin-bottom:14px!important;width:100%!important}
   .hero-btns .btn{width:100%!important;justify-content:center!important;font-size:12.5px!important;padding:12px!important}
-  .stats{gap:12px!important;justify-content:center!important;padding-top:10px!important}
-  .stat b{font-size:15px!important}.stat span{font-size:9px!important}
-
-  /* Sections & Grids - تحويل الأعمدة إلى عمود واحد لمنع التراكم */
-  .sh h2{font-size:17px!important}.sh p{font-size:11.5px!important}
-  .eyebrow{font-size:11px!important}
   
-  .sp-grid, .sp-grid2, .doc-grid, .feat-grid, .ph-grid, .fg-grid, .sp-docs-grid, .lay-f, .srch, .grid2, .grid3 {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
+  /* الحفاظ على الهيكل الهرمي والصيدليات المزدوجة حتى عالموبايل بمرونة */
+  .hierarchical-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+  .pharmacies-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
   }
   
-  .fp{display:none!important}
-
-  /* Booking & Pages Fixes */
-  .book-page, .join-page{padding:10px!important}
-  .book-card, .form-card{padding:14px!important}
-  .book-hero, .join-hero{display:flex!important;flex-direction:column!important;padding:16px!important;text-align:center!important}
-  .book-hero-anim{display:none!important}
-  .step-info{gap:8px!important;flex-direction:column!important;text-align:center!important}
-
-  /* Consultation */
-  .cons-lay{grid-template-columns:1fr!important;gap:12px!important}
-  .doc-list{max-height:160px;overflow-y:auto}
-  .chat-msgs{max-height:240px!important}
-
-  /* Appointments */
-  .apt-card{flex-direction:column!important;align-items:stretch!important;gap:10px;padding:12px!important}
-
-  /* Doctor page */
-  .doc-hero{padding:14px!important}
-  .doc-hero-inner{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important}
-  .doc-stats{grid-template-columns:1fr 1fr!important;gap:8px;margin-top:10px;width:100%}
-
-  /* إلغاء إجبار الجداول والأعمدة الثلاثية العريضة */
-  div[style*="grid-template-columns:repeat(3"], 
-  div[style*="grid-template-columns:1fr 1fr 1fr"],
-  div[style*="grid-template-columns:1fr auto"] {
-    grid-template-columns: 1fr !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-  }
-  
-  table, .card, .container, input, select {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
+  .fg-grid{grid-template-columns:1fr!important;gap:20px}
+  .foot-bot{flex-direction:column;text-align:center;gap:6px}
 }
 
-@media(max-width:480px){
-  .hero-ct h1{font-size:16px!important}
-  .foot-bot{flex-direction:column;text-align:center;gap:6px}
+@media(max-width:480px) {
+  .hierarchical-grid {
+    display: flex !important;
+    flex-direction: column !important;
+  }
 }
 
 @yield('styles')
@@ -230,20 +232,46 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
 
 @yield('content')
 
+<!-- FOOTER المطور والراقي -->
 <footer class="footer">
   <div class="fg-grid">
     <div class="fg-col">
       <div class="logo" style="margin-bottom:12px">
         <div class="lm"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-        <div class="ln" style="color:#fff;font-size:15px">منصة <span style="color:rgba(255,255,255,.7)">الزنتان</span></div>
+        <div class="ln">منصة <span>الزنتان</span></div>
       </div>
-      <p>منصتك الموثوقة لحجز المواعيد الطبية في مدينة الزنتان، ليبيا.</p>
+      <p>رؤية تقنية متكاملة لتحسين وتسهيل الوصول للخدمات الطبية والرعاية الصحية الشاملة داخل مدينة الزنتان.</p>
     </div>
-    <div class="fg-col"><h4>روابط سريعة</h4><ul><li>الرئيسية</li><li>الأطباء</li><li>التخصصات</li><li>الصيدليات</li></ul></div>
-    <div class="fg-col"><h4>حسابي</h4><ul><li>مواعيدي</li><li>تواصل مع طبيبك</li><li>احجز موعد</li></ul></div>
-    <div class="fg-col"><h4>تواصل معنا</h4><ul><li>مدينة الزنتان، ليبيا</li><li>info@zintanmed.ly</li><li>091-000-0000</li></ul></div>
+    <div class="fg-col">
+      <h4>تصفح المنصة</h4>
+      <ul>
+        <li><a href="{{ route('home') }}">الرئيسية</a></li>
+        <li><a href="{{ route('doctors') }}">دليل الأطباء</a></li>
+        <li><a href="{{ route('specialties') }}">التخصصات المتاحة</a></li>
+        <li><a href="{{ route('pharmacies') }}">الصيدليات المناوبة</a></li>
+      </ul>
+    </div>
+    <div class="fg-col">
+      <h4>بوابة المرضى</h4>
+      <ul>
+        <li><a href="{{ route('booking') }}">لوحة الحجز السريع</a></li>
+        <li><a href="{{ route('appointments') }}">إدارة مواعيدي</a></li>
+        <li><a href="{{ route('consultation') }}">الاستشارات الطبية</a></li>
+      </ul>
+    </div>
+    <div class="fg-col">
+      <h4>معلومات التواصل</h4>
+      <ul>
+        <li>📍 الجبل الغربي - مدينة الزنتان، ليبيا</li>
+        <li>✉️ support@zintanmed.ly</li>
+        <li>📞 الدعم الفني: 091-000-0000</li>
+      </ul>
+    </div>
   </div>
-  <div class="foot-bot"><span>© 2026 منصة الزنتان الطبية</span><span>مشروع تخرج</span></div>
+  <div class="foot-bot">
+    <span>© 2026 منصة الزنتان الطبية المتكاملة</span>
+    <span>تطوير وإشراف برمجيات - مشروع التخرج الممتاز</span>
+  </div>
 </footer>
 
 <script>
