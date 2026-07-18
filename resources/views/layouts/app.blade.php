@@ -4,31 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <style>
-    @media (max-width: 768px) {
-        /* تجعل أي عناصر مرصوصة بجانب بعضها تنزل تحت بعضها بانتظام */
-        .row, .flex, .navbar, .grid, .form-group {
-            display: flex !important;
-            flex-direction: column !important;
-            width: 100% !important;
-            align-items: center !important;
-        }
-        /* تصغير حجم الخطوط الكبيرة لكي لا تأخذ مساحة الشاشة */
-        h1, h2, h3 {
-            font-size: 1.5rem !important;
-            text-align: center !important;
-        }
-        /* ضبط الجداول والقوائم لكي لا تخرج عن الشاشة */
-        table, .card, .container, input, select {
-            width: 95% !important;
-            max-width: 95% !important;
-            display: block !important;
-            margin: 10px auto !important;
-        }
-    }
-</style>
-<title>@yield('title', 'منصة الزنتان الطبية')</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
-<style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --p:#B2DDB8;--pd:#8FBF96;--pdd:#6A9E75;
@@ -91,7 +66,7 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
 .nt:hover,.nt.on{color:var(--p);background:var(--pl)}
 .nt.bk{background:var(--p);color:#fff}.nt.bk:hover{background:var(--pd)}
 
-/* MOBILE TABS BAR - شريط أفقي دائم تحت الناف بار */
+/* MOBILE TABS BAR */
 .mob-tabs-bar{display:none;background:var(--card);border-bottom:2px solid var(--bds);padding:6px 10px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;position:sticky;top:56px;z-index:198;gap:5px;width:100%}
 .mob-tabs-bar::-webkit-scrollbar{display:none}
 .mob-t{padding:7px 12px;border-radius:var(--rF);font-size:11.5px;font-weight:700;color:var(--tm);white-space:nowrap;border:none;background:none;font-family:var(--font);cursor:pointer;text-decoration:none;display:inline-block;transition:.2s;flex-shrink:0}
@@ -141,81 +116,70 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
 
   /* Hero */
   .hero{padding:18px 12px 28px!important}
-  .hero-in{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;align-items:center!important}
-  .hero-vis{display:flex!important;align-items:center!important;justify-content:center!important}
-  .hero-ct h1{font-size:18px!important;letter-spacing:0!important}
-  .hero-qs{font-size:11.5px!important}
-  .hero-p{font-size:11.5px!important;margin-bottom:10px!important}
-  .hero-feats{gap:6px!important;margin-bottom:10px!important}
+  .hero-in{display:flex!important;flex-direction:column!important;gap:15px!important;align-items:center!important}
+  .hero-vis{display:none!important}
+  .hero-ct h1{font-size:18px!important;text-align:center!important}
+  .hero-qs{font-size:11.5px!important;text-align:center!important}
+  .hero-p{font-size:11.5px!important;margin-bottom:10px!important;text-align:center!important}
+  .hero-feats{gap:6px!important;margin-bottom:10px!important;justify-content:center!important}
   .hf{font-size:10.5px!important}
-  .hbadge{font-size:9.5px!important;padding:3px 9px!important;margin-bottom:8px!important}
-  .hero-btns{flex-direction:column!important;gap:6px!important;margin-bottom:14px!important}
-  .hero-btns .btn{width:100%!important;justify-content:center!important;font-size:12.5px!important;padding:10px!important}
-  .stats{gap:8px!important;flex-wrap:wrap!important;padding-top:10px!important}
+  .hbadge{font-size:9.5px!important;padding:3px 9px!important;margin:0 auto 8px!important;display:table!important}
+  .hero-btns{flex-direction:column!important;gap:8px!important;margin-bottom:14px!important;width:100%!important}
+  .hero-btns .btn{width:100%!important;justify-content:center!important;font-size:12.5px!important;padding:12px!important}
+  .stats{gap:12px!important;justify-content:center!important;padding-top:10px!important}
   .stat b{font-size:15px!important}.stat span{font-size:9px!important}
 
-  /* Sections */
+  /* Sections & Grids - تحويل الأعمدة إلى عمود واحد لمنع التراكم */
   .sh h2{font-size:17px!important}.sh p{font-size:11.5px!important}
   .eyebrow{font-size:11px!important}
-
-  /* Grids */
-  .sp-grid{grid-template-columns:1fr 1fr!important;gap:8px!important}
-  .sp-grid2{grid-template-columns:1fr 1fr!important;gap:8px!important}
-  .doc-grid{grid-template-columns:1fr!important}
-  .feat-grid{grid-template-columns:1fr 1fr!important;gap:8px!important}
-  .ph-grid{grid-template-columns:1fr 1fr!important;gap:8px!important}
-  .fg-grid{grid-template-columns:1fr!important}
-  .sp-docs-grid{grid-template-columns:1fr!important}
-  .lay-f{grid-template-columns:1fr!important}
+  
+  .sp-grid, .sp-grid2, .doc-grid, .feat-grid, .ph-grid, .fg-grid, .sp-docs-grid, .lay-f, .srch, .grid2, .grid3 {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  
   .fp{display:none!important}
-  .srch{grid-template-columns:1fr!important;gap:8px!important}
 
-  /* Booking */
-  .book-page{padding:10px!important}
-  .book-card{padding:14px!important}
-  .book-hero{display:block!important;padding:18px!important}
+  /* Booking & Pages Fixes */
+  .book-page, .join-page{padding:10px!important}
+  .book-card, .form-card{padding:14px!important}
+  .book-hero, .join-hero{display:flex!important;flex-direction:column!important;padding:16px!important;text-align:center!important}
   .book-hero-anim{display:none!important}
-  .grid2,.grid3{grid-template-columns:1fr!important}
-  .step-info{gap:8px!important}
+  .step-info{gap:8px!important;flex-direction:column!important;text-align:center!important}
 
   /* Consultation */
-  .cons-lay{grid-template-columns:1fr!important}
+  .cons-lay{grid-template-columns:1fr!important;gap:12px!important}
   .doc-list{max-height:160px;overflow-y:auto}
   .chat-msgs{max-height:240px!important}
 
   /* Appointments */
-  .apt-card{flex-wrap:wrap;gap:8px;padding:12px!important}
+  .apt-card{flex-direction:column!important;align-items:stretch!important;gap:10px;padding:12px!important}
 
   /* Doctor page */
   .doc-hero{padding:14px!important}
-  .doc-hero-inner{display:block!important}
-  .doc-stats{grid-template-columns:1fr 1fr!important;gap:6px;margin-top:10px}
+  .doc-hero-inner{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important}
+  .doc-stats{grid-template-columns:1fr 1fr!important;gap:8px;margin-top:10px;width:100%}
 
-  /* Join */
-  .join-page{padding:10px!important}
-  .join-hero{padding:18px!important;display:block!important}
-  .type-grid{grid-template-columns:1fr!important}
-  .form-card{padding:14px!important}
-
-  /* Pharmacies */
-  .ph-search{grid-template-columns:1fr!important;gap:8px!important}
-  .ph-card{padding:12px!important}
-
-  /* خدماتنا والشراكة 3 أعمدة */
-  div[style*="grid-template-columns:repeat(3"]{display:grid!important;grid-template-columns:1fr 1fr 1fr!important;gap:7px!important}
-  div[style*="grid-template-columns:1fr 1fr 1fr"]{display:grid!important;grid-template-columns:1fr 1fr 1fr!important;gap:7px!important}
-  div[style*="grid-template-columns:1fr auto"]{display:flex!important;flex-direction:column!important;gap:12px!important}
+  /* إلغاء إجبار الجداول والأعمدة الثلاثية العريضة */
+  div[style*="grid-template-columns:repeat(3"], 
+  div[style*="grid-template-columns:1fr 1fr 1fr"],
+  div[style*="grid-template-columns:1fr auto"] {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  
+  table, .card, .container, input, select {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
 }
 
 @media(max-width:480px){
-  .sp-grid,.sp-grid2{grid-template-columns:1fr 1fr!important}
-  .feat-grid{grid-template-columns:1fr 1fr!important}
-  .ph-grid{grid-template-columns:1fr!important}
-  .fg-grid{grid-template-columns:1fr!important}
   .hero-ct h1{font-size:16px!important}
-  .hero-in{grid-template-columns:1fr!important}
-  .hero-vis{display:none!important}
-  .foot-bot{flex-direction:column;text-align:center}
+  .foot-bot{flex-direction:column;text-align:center;gap:6px}
 }
 
 @yield('styles')
@@ -223,7 +187,7 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
 </head>
 <body>
 
-<!-- NAVBAR - لوغو فوق والتبويبات في سطر تحته -->
+<!-- NAVBAR -->
 <nav class="nav">
   <div class="nav-top">
     <a href="{{ route('home') }}" class="logo">
@@ -242,7 +206,6 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
       <div class="uav" id="user-avatar">م</div>
     </div>
   </div>
-  <!-- تبويبات ديسكتوب في سطر ثاني -->
   <div class="nav-tabs">
     <a href="{{ route('home') }}" class="nt {{ request()->routeIs('home') || request()->routeIs('home.page') ? 'on' : '' }}">الرئيسية</a>
     <a href="{{ route('doctors') }}" class="nt {{ request()->routeIs('doctors') ? 'on' : '' }}">الأطباء</a>
