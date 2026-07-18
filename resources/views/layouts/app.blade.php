@@ -6,19 +6,17 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  /* درجات الأخضر الطبي لتصبح أكثر حيوية ونعومة (مستوحاة من الطابع الطبي الاحترافي) */
-  --p:#00A887;    /* الأخضر الأساسي النظيف للبراند */
-  --pd:#008F72;   /* أخضر أغمق قليلاً للحوامات والأزرار عند التأشير */
-  --pdd:#006651;  /* الأخضر الداكن للنصوص والعناصر العميقة */
-  --pl:#E6F6F3;   /* خلفية خضراء ناعمة جداً للمكونات النشطة */
-  --pll:#F2FAF8;  /* لمسة خضراء خفيفة للغاية للمساحات الواسعة */
-  
-  --td:#1B2B28;   /* لون النص الأساسي داكن وقريب من الأخضر المستقر */
+  --p:#00A887;    /* الأخضر الأساسي */
+  --pd:#008F72;   /* أخضر أغمق للحوامات */
+  --pdd:#006651;  /* الأخضر الداكن للنصوص */
+  --pl:#E6F6F3;   /* خلفية خضراء ناعمة */
+  --pll:#F2FAF8;  
+  --td:#1B2B28;   /* لون النص الأساسي */
   --tm:#526E68;   /* لون النص المتوسط */
-  --tl:#8FA39F;   /* لون النص الخفيف جداً */
-  --bg:#F7FAf9;   /* خلفية الصفحة العامة المريحة */
+  --tl:#8FA39F;   
+  --bg:#F7FAf9;   /* خلفية الصفحة العامة */
   --card:#fff;
-  --bdr:#CCEBE4;  /* حدود ناعمة متناسقة مع الأخضر الجديد */
+  --bdr:#CCEBE4;  
   --bds:#E6F2EF;
   
   --ok:#22a55e;--ac:#f0a93a;--err:#e74c3c;
@@ -50,8 +48,7 @@
 
 body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);overflow-x:hidden;width:100%;min-height:100vh;display:flex;flex-direction:column}
 
-/* إصلاح التداخل وضمان انسيابية السكاشن */
-main, .main-content, @yield('content') {
+main {
   display: block;
   width: 100%;
   clear: both;
@@ -69,15 +66,11 @@ main, .main-content, @yield('content') {
 .lm{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--p),var(--pd));display:flex;align-items:center;justify-content:center;box-shadow:var(--sp);flex-shrink:0}
 .lm svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
 .ln{font-size:16px;font-weight:900;color:var(--td);line-height:1.2}.ln span{color:var(--p)}
-.ls{font-size:10px;color:var(--tm);font-weight:600;letter-spacing:0.5px}
+.ls{font-size:10px;color:var(--tm);font-weight:600}
 .nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .icon-btn{width:36px;height:36px;border-radius:50%;background:var(--pl);border:1.5px solid var(--bdr);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;flex-shrink:0}
-.icon-btn:hover{background:var(--p);border-color:var(--p)}
-.icon-btn:hover svg{stroke:#fff}
 .icon-btn svg{width:18px;height:18px;fill:none;stroke:var(--p);stroke-width:2;stroke-linecap:round}
-.lang-btn{height:34px;padding:0 12px;border-radius:var(--rF);background:var(--pl);border:1.5px solid var(--bdr);display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;font-weight:800;color:var(--p);font-family:var(--font);white-space:nowrap;transition:.2s}
-.lang-btn:hover{background:var(--p);color:#fff;border-color:var(--p)}
-.lang-btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.lang-btn{height:34px;padding:0 12px;border-radius:var(--rF);background:var(--pl);border:1.5px solid var(--bdr);display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;font-weight:800;color:var(--p);font-family:var(--font);white-space:nowrap}
 .uav{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;border:2px solid var(--pl);flex-shrink:0}
 
 /* TABS ROW */
@@ -85,12 +78,12 @@ main, .main-content, @yield('content') {
 .nav-tabs::-webkit-scrollbar{display:none}
 .nt{padding:8px 16px;border-radius:var(--rF);font-weight:700;font-size:13.5px;color:var(--tm);border:none;background:none;font-family:var(--font);cursor:pointer;transition:.2s;text-decoration:none;display:inline-block;white-space:nowrap;flex-shrink:0}
 .nt:hover,.nt.on{color:var(--p);background:var(--pl)}
-.nt.bk{background:var(--p);color:#fff;box-shadow: var(--s1);margin-right:auto}.nt.bk:hover{background:var(--pd);transform: translateY(-1px);}
+.nt.bk{background:var(--p);color:#fff;margin-right:auto}
 
 /* MOBILE TABS BAR */
-.mob-tabs-bar{display:none;background:var(--card);border-bottom:1px solid var(--bds);padding:8px 12px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;position:sticky;top:56px;z-index:198;gap:6px;width:100%;box-shadow: var(--s1);}
+.mob-tabs-bar{display:none;background:var(--card);border-bottom:1px solid var(--bds);padding:6px 8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;position:sticky;top:54px;z-index:198;gap:4px;width:100%;box-shadow: var(--s1);}
 .mob-tabs-bar::-webkit-scrollbar{display:none}
-.mob-t{padding:8px 14px;border-radius:var(--rF);font-size:12px;font-weight:700;color:var(--tm);white-space:nowrap;border:none;background:none;font-family:var(--font);cursor:pointer;text-decoration:none;display:inline-block;transition:.2s;flex-shrink:0}
+.mob-t{padding:6px 12px;border-radius:var(--rF);font-size:11.5px;font-weight:700;color:var(--tm);white-space:nowrap;border:none;background:none;font-family:var(--font);cursor:pointer;text-decoration:none;display:inline-block;transition:.2s;flex-shrink:0}
 .mob-t:hover,.mob-t.on{color:var(--p);background:var(--pl)}
 .mob-t.bk{background:var(--p);color:#fff;margin-right:auto}
 
@@ -103,148 +96,106 @@ main, .main-content, @yield('content') {
 .si{max-width:1100px;margin:0 auto;width:100%;padding:0 20px;box-sizing: border-box;}
 .iw{position:relative}
 .iw input,.iw select{width:100%;padding:12px 12px 12px 40px;border:1.5px solid var(--bdr);border-radius:var(--r8);font-size:14px;color:var(--td);background:var(--bg);font-family:var(--font);transition:.2s}
-.iw input:focus,.iw select:focus{outline:none;border-color:var(--p);background:var(--card)}
-.iw-ic{position:absolute;top:50%;left:12px;transform:translateY(-50%);color:var(--tl);pointer-events:none}
-.iw-ic svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
 
-/* ═══ FOOTER تجميل وتطوير الـ ═══ */
+/* FOOTER */
 .footer{
   background: linear-gradient(145deg, var(--pdd), var(--pd));
   color: #fff;
-  padding: 50px 0 0;
+  padding: 40px 0 0;
   width: 100%;
-  margin-top: auto; /* يضمن بقاء الفوتر أسفل الصفحة دائماً */
-  box-shadow: 0 -5px 25px rgba(0, 168, 135, 0.15);
+  margin-top: auto;
+  box-shadow: 0 -4px 20px rgba(0, 168, 135, 0.1);
 }
 .fg-grid{
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 30px;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 24px;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px 35px;
-}
-.fg-col{
-  display: flex;
-  flex-direction: column;
+  padding: 0 20px 30px;
 }
 .fg-col h4{
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 800;
   color: #fff;
-  margin-bottom: 18px;
-  position: relative;
-  padding-bottom: 8px;
-}
-/* خط ديكوري ناعم تحت العناوين */
-.fg-col h4::after{
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 35px;
-  height: 2.5px;
-  background: rgba(255,255,255,0.6);
-  border-radius: var(--rF);
-}
-.fg-col p{
-  font-size: 13px;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.8;
-}
-.fg-col ul{
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.fg-col li{
-  margin-bottom: 10px;
-}
-.fg-col li a{
-  font-size: 13px;
-  color: rgba(255,255,255,0.75);
-  text-decoration: none;
-  transition: 0.25s ease;
-  display: inline-flex;
-  align-items: center;
-}
-.fg-col li a:hover{
-  color: #fff;
-  transform: translateX(-4px); /* حركة تفاعلية ناعمة عند التأشير */
-}
-.foot-contact-item{
-  display: flex;
-  align-items: center;
-  gap: 10px;
   margin-bottom: 12px;
-  font-size: 13px;
-  color: rgba(255,255,255,0.8);
+  position: relative;
+  padding-bottom: 6px;
 }
-.foot-contact-item svg{
-  width: 16px;
-  height: 16px;
-  stroke: rgba(255,255,255,0.8);
-  fill: none;
-  stroke-width: 2;
+.fg-col h4::after{
+  content: ''; position: absolute; bottom: 0; right: 0; width: 25px; height: 2px; background: rgba(255,255,255,0.5);
 }
+.fg-col p{ font-size: 12.5px; color: rgba(255,255,255,0.85); line-height: 1.7; }
+.fg-col ul{ list-style: none; }
+.fg-col li{ margin-bottom: 8px; }
+.fg-col li a{
+  font-size: 12.5px; color: rgba(255,255,255,0.8); text-decoration: none; transition: 0.2s; display: inline-block;
+}
+.fg-col li a:hover{ color: #fff; transform: translateX(-3px); }
+.foot-contact-item{ display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 12.5px; color: rgba(255,255,255,0.85); }
+.foot-contact-item svg{ width: 14px; height: 14px; stroke: #fff; fill: none; stroke-width: 2; }
 .foot-bot{
-  border-top: 1px solid rgba(255,255,255,0.12);
-  padding: 18px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1100px;
-  margin: 0 auto;
-  font-size: 12.5px;
-  color: rgba(255,255,255,0.65);
+  border-top: 1px solid rgba(255,255,255,0.1); padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; font-size: 12px; color: rgba(255,255,255,0.7);
 }
 .foot-bot span:last-child {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 4px 12px;
-  border-radius: var(--rF);
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.12); padding: 3px 10px; border-radius: var(--rF); font-weight: 700; font-size: 11px;
 }
 
-/* ═══ RESPONSIVE & FIXES ═══ */
+/* ═══ التعديل الذكي والناعم لشاشات الهواتف ═══ */
 @media(max-width:900px){
   .nav-tabs{display:none}
   .mob-tabs-bar{display:flex}
-  .fg-grid{grid-template-columns: 1.2fr 1fr; gap: 25px;}
+  .fg-grid{grid-template-columns: 1fr 1fr; gap: 20px;}
 }
 
 @media(max-width:768px){
-  .nav{padding:8px 12px 0}
-  .lm{width:34px;height:34px}
-  .ln{font-size:14px}.ls{display:none}
-  .lang-btn{padding:0 8px;height:32px;font-size:11px}
-  .icon-btn{width:32px;height:32px}.icon-btn svg{width:15px;height:15px}
-  .uav{width:32px;height:32px;font-size:12px}
-  .mob-tabs-bar{top:52px;padding:6px 10px}
-  .mob-t{font-size:11.5px;padding:6px 12px}
-  .si{padding:0 15px !important}
-  .pg-hd{padding:16px 15px!important}
-  .footer{padding:40px 0 0!important}
-  .fg-grid{padding: 0 15px 25px; gap: 20px;}
-
-  /* منع زحف المحتوى بالكامل وإصلاح الـ Grid */
-  .sp-grid, .sp-grid2, .doc-grid, .feat-grid, .ph-grid, .sp-docs-grid, .lay-f, .srch, .grid2, .grid3 {
+  /* منع الزحف لليسار وتهيئة الأبعاد بالملي */
+  html, body { overflow-x: hidden; width: 100%; }
+  
+  .nav{padding:8px 12px 0; top:0; height: 54px;}
+  .lm{width:32px;height:32px; border-radius: 9px;}
+  .lm svg{width:18px;height:18px}
+  .ln{font-size:13.5px}.ls{display:none}
+  .lang-btn{padding:0 8px;height:30px;font-size:11px}
+  .icon-btn{width:30px;height:30px}.icon-btn svg{width:14px;height:14px}
+  .uav{width:30px;height:30px;font-size:12px}
+  
+  .mob-tabs-bar{top:54px;padding:5px 8px}
+  .mob-t{font-size:11px;padding:5px 10px}
+  
+  .si{padding:0 12px !important}
+  .pg-hd{padding:14px 12px!important}
+  
+  /* معالجة أحجام العناصر داخل السكاشن لتكون ناعمة ومناسبة للموبايل */
+  .btn { padding: 10px 18px; font-size: 13px; }
+  
+  /* إلغاء الـ grid القاسي وتحويله لتدفق مرن يمنع تداخل السكاشن */
+  .sp-grid, .sp-grid2, .doc-grid, .feat-grid, .ph-grid, .sp-docs-grid, .lay-f, .srch, .grid2, .grid3, .fg-grid {
     grid-template-columns: 1fr !important;
-    gap: 15px !important;
+    gap: 12px !important;
     width: 100% !important;
   }
   
   .fp{display:none!important}
-  table, .card, .container, input, select {
+  
+  /* الحفاظ على أبعاد الكروت والمدخلات بداخل الشاشة */
+  table, .card, .container, input, select, textarea {
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
   }
+  
+  /* الفوتر على الموبايل */
+  .footer{padding:30px 0 0!important}
+  .fg-grid{padding: 0 15px 20px; gap: 16px;}
+  .fg-col h4 { margin-bottom: 8px; font-size: 13px; }
+  .foot-bot { padding: 12px 15px; font-size: 11px; }
 }
 
 @media(max-width:480px){
-  .fg-grid{grid-template-columns: 1fr !important; gap: 20px;}
-  .foot-bot{flex-direction:column;text-align:center;gap:8px;padding:15px 10px;}
+  /* للهواتف الصغيرة جداً */
+  .fg-grid{grid-template-columns: 1fr !important; gap: 16px;}
+  .foot-bot{flex-direction:column; text-align:center; gap:6px; padding:12px 10px;}
 }
 
 @yield('styles')
@@ -293,36 +244,36 @@ main, .main-content, @yield('content') {
   <a href="{{ route('booking') }}" class="mob-t bk">احجز ←</a>
 </div>
 
-<!-- المحتوى الرئيسي للملفات الفرعية -->
+<!-- محتوى الصفحات الفرعية الممرر من Laravel -->
 <main>
   @yield('content')
 </main>
 
-<!-- الشريط السفلي الجميل والمطور -->
+<!-- الفوتر المتناسق والأنيق -->
 <footer class="footer">
   <div class="fg-grid">
     <div class="fg-col">
-      <div class="logo" style="margin-bottom:15px">
+      <div class="logo" style="margin-bottom:12px">
         <div class="lm"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-        <div class="ln" style="color:#fff;font-size:16px">منصة <span style="color:rgba(255,255,255,.8)">الزنتان</span></div>
+        <div class="ln" style="color:#fff;font-size:15px">منصة <span style="color:rgba(255,255,255,.7)">الزنتان</span></div>
       </div>
-      <p>منصتك الطبية المتكاملة والموثوقة لتسهيل حجز المواعيد والوصول إلى الرعاية الصحية الشاملة في مدينة الزنتان.</p>
+      <p>منصتك الطبية الموثوقة لحجز المواعيد والخدمات الطبية في مدينة الزنتان.</p>
     </div>
     <div class="fg-col">
       <h4>روابط سريعة</h4>
       <ul>
-        <li><a href="{{ route('home') }}">الصفحة الرئيسية</a></li>
-        <li><a href="{{ route('doctors') }}">دليل الأطباء</a></li>
-        <li><a href="{{ route('specialties') }}">التخصصات الطبية</a></li>
-        <li><a href="{{ route('pharmacies') }}">الصيدليات المناوبة</a></li>
+        <li><a href="{{ route('home') }}">الرئيسية</a></li>
+        <li><a href="{{ route('doctors') }}">الأطباء</a></li>
+        <li><a href="{{ route('specialties') }}">التخصصات</a></li>
+        <li><a href="{{ route('pharmacies') }}">الصيدليات</a></li>
       </ul>
     </div>
     <div class="fg-col">
-      <h4>بوابة المستخدم</h4>
+      <h4>حسابي</h4>
       <ul>
-        <li><a href="{{ route('appointments') }}">لوحة مواعيدي</a></li>
-        <li><a href="{{ route('consultation') }}">الاستشارات الطبية</a></li>
-        <li><a href="{{ route('booking') }}">احجز موعدك الآن</a></li>
+        <li><a href="{{ route('appointments') }}">مواعيدي</a></li>
+        <li><a href="{{ route('consultation') }}">تواصل مع طبيبك</a></li>
+        <li><a href="{{ route('booking') }}">احجز موعد</a></li>
       </ul>
     </div>
     <div class="fg-col">
@@ -335,15 +286,11 @@ main, .main-content, @yield('content') {
         <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         <span>info@zintanmed.ly</span>
       </div>
-      <div class="foot-contact-item">
-        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span>091-000-0000</span>
-      </div>
     </div>
   </div>
   <div class="foot-bot">
-    <span>© 2026 منصة الزنتان الطبية - كافة الحقوق محفوظة</span>
-    <span>مشروع تخرج ممتاز</span>
+    <span>© 2026 منصة الزنتان الطبية</span>
+    <span>مشروع تخرج</span>
   </div>
 </footer>
 
