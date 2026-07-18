@@ -71,8 +71,47 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
 /* MOBILE MENU */
-.mob-menu{display:none;position:fixed;top:60px;right:0;left:0;background:var(--card);border-bottom:2px solid var(--bds);z-index:199;padding:10px;box-shadow:0 8px 32px rgba(0,0,0,.12);flex-direction:column;gap:4px;max-height:calc(100vh - 60px);overflow-y:auto}
-.mob-menu.open{display:flex;animation:slideDown .2s ease}
+/* MOBILE TABS BAR */
+.mob-menu{
+  display:none;
+  position:sticky;
+  top:56px;
+  background:var(--card);
+  border-bottom:2px solid var(--bds);
+  z-index:199;
+  padding:8px 10px;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+.mob-menu.open{
+  display:block;
+}
+.mob-tabs-scroll{
+  display:flex;
+  gap:6px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:2px;
+}
+.mob-tabs-scroll::-webkit-scrollbar{display:none}
+.mob-nt{
+  padding:8px 14px;
+  border-radius:var(--rF);
+  font-size:12px;
+  font-weight:700;
+  color:var(--tm);
+  white-space:nowrap;
+  border:none;
+  background:none;
+  font-family:var(--font);
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+  transition:.2s;
+  flex-shrink:0;
+}
+.mob-nt:hover,.mob-nt.on{color:var(--p);background:var(--pl)}
+.mob-nt.bk{background:var(--p);color:#fff}
 @keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
 
 /* كل عنصر في القائمة له سهم وشرح */
@@ -194,15 +233,17 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
     <div><div class="ln">منصة <span>الزنتان</span></div><div class="ls">Zintan Medical</div></div>
   </a>
 
-  <div class="ntabs">
-    <a href="{{ route('home') }}" class="nt {{ request()->routeIs('home') || request()->routeIs('home.page') ? 'on' : '' }}">الرئيسية</a>
-    <a href="{{ route('doctors') }}" class="nt {{ request()->routeIs('doctors') ? 'on' : '' }}">الأطباء</a>
-    <a href="{{ route('specialties') }}" class="nt {{ request()->routeIs('specialties') ? 'on' : '' }}">التخصصات</a>
-    <a href="{{ route('pharmacies') }}" class="nt {{ request()->routeIs('pharmacies') ? 'on' : '' }}">الصيدليات</a>
-    <a href="{{ route('appointments') }}" class="nt {{ request()->routeIs('appointments') ? 'on' : '' }}">مواعيدي</a>
-    <a href="{{ route('consultation') }}" class="nt {{ request()->routeIs('consultation') ? 'on' : '' }}">تواصل مع طبيبك</a>
-    <a href="{{ route('booking') }}" class="nt bk">احجز موعد</a>
+  <div class="mob-menu open" id="mob-menu">
+  <div class="mob-tabs-scroll">
+    <a href="{{ route('home') }}" class="mob-nt {{ request()->routeIs('home') ? 'on' : '' }}">🏠 الرئيسية</a>
+    <a href="{{ route('doctors') }}" class="mob-nt {{ request()->routeIs('doctors') ? 'on' : '' }}">👨‍⚕️ الأطباء</a>
+    <a href="{{ route('specialties') }}" class="mob-nt {{ request()->routeIs('specialties') ? 'on' : '' }}">🔬 التخصصات</a>
+    <a href="{{ route('pharmacies') }}" class="mob-nt {{ request()->routeIs('pharmacies') ? 'on' : '' }}">💊 الصيدليات</a>
+    <a href="{{ route('appointments') }}" class="mob-nt {{ request()->routeIs('appointments') ? 'on' : '' }}">📅 مواعيدي</a>
+    <a href="{{ route('consultation') }}" class="mob-nt {{ request()->routeIs('consultation') ? 'on' : '' }}">💬 طبيبك</a>
+    <a href="{{ route('booking') }}" class="mob-nt bk">احجز ←</a>
   </div>
+</div>
 
   <div class="nav-right">
     <button class="lang-btn" onclick="toggleLang()" id="lang-btn">
@@ -214,7 +255,7 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
       <svg id="sun-icon" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
     </button>
     <div class="uav" id="user-avatar">م</div>
-    <button class="hamburger" onclick="toggleMenu()" id="hamburger">
+    <button class="hamburger" onclick="this.style.display='none'" id="hamburger">
       <span></span><span></span><span></span>
     </button>
   </div>
