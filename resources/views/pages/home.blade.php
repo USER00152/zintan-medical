@@ -121,7 +121,7 @@
         <div class="stat"><b>3</b><span>عيادات شريكة</span></div>
         <div class="stat"><b>35+</b><span>موعد متاح</span></div>
       </div>
-    </div> 
+    </div>
 
     <div style="position:relative;display:flex;align-items:center;justify-content:center">
       <div style="width:380px;height:380px;position:relative">
@@ -254,7 +254,7 @@
             إلغاء وإعادة جدولة مجاناً
           </div>
         </div>
-      </div> 
+      </div>
 
       {{-- خدمة 2 --}}
       <div style="background:linear-gradient(160deg,var(--pdd),var(--p));border-radius:24px;padding:32px;transition:.25s;position:relative;overflow:hidden;transform:translateY(-8px);box-shadow:0 20px 50px rgba(106,158,117,.35)" onmouseover="this.style.transform='translateY(-14px)'" onmouseout="this.style.transform='translateY(-8px)'">
@@ -318,20 +318,6 @@
   </div>
 </div>
 
-<div class="sec">
-  <div class="si">
-    <div class="sh"><span class="eyebrow">الصيدليات المعتمدة</span><h2>صيدليات الزنتان</h2><p>تواصل مع الصيدليات المعتمدة واحصل على دوائك بسهولة</p></div>
-    <div class="ph-grid">
-      <div class="ph-card"><div class="ph-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="ph-name">صيدلية الرحمة</div><div class="ph-addr">شارع الجمهورية</div><div class="ph-open" style="color:#22a55e">● مفتوحة الآن</div></div></div>
-      <div class="ph-card"><div class="ph-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="ph-name">صيدلية النخبة</div><div class="ph-addr">حي المطار</div><div class="ph-open" style="color:#22a55e">● مفتوحة الآن</div></div></div>
-      <div class="ph-card"><div class="ph-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="ph-name">صيدلية الشفاء</div><div class="ph-addr">وسط المدينة</div><div class="ph-open" style="color:#22a55e">● مفتوحة الآن</div></div></div>
-      <div class="ph-card"><div class="ph-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="ph-name">صيدلية الأمل</div><div class="ph-addr">حي الزهور</div><div class="ph-open" style="color:var(--tm)">● مغلقة حالياً</div></div></div>
-      <div class="ph-card"><div class="ph-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="ph-name">صيدلية الحياة</div><div class="ph-addr">شارع الوحدة</div><div class="ph-open" style="color:#22a55e">● مفتوحة الآن</div></div></div>
-      <div class="ph-card"><div class="ph-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="ph-name">صيدلية الوفاء</div><div class="ph-addr">حي الصداقة</div><div class="ph-open" style="color:#22a55e">● مفتوحة الآن</div></div></div>
-    </div>
-  </div>
-</div>
-       
 <div class="sec" style="background:var(--card)">
   <div class="si">
     <div class="sh"><span class="eyebrow">لماذا منصتنا؟</span><h2>كل ما تحتاجه في مكان واحد</h2><p>منصة متكاملة تربط المرضى بالأطباء في الزنتان</p></div>
@@ -345,6 +331,54 @@
     </div>
   </div>
 </div>
+
+<div class="sec">
+  <div class="si">
+    <div class="sh"><span class="eyebrow">الصيدليات المعتمدة</span><h2>صيدليات الزنتان</h2><p>تواصل مع الصيدليات المعتمدة واحصل على دوائك بسهولة</p></div>
+    <div class="ph-grid">
+      <div class="ph-card"><div class="ph-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="ph-name">صيدلية الرحمة</div><div class="ph-addr">شارع الجمهورية</div><div class="ph-open" style="color:#22a55e">● مفتوحة الآن</div></div></div>
+      <div class="ph-card"><div class="ph-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="ph-name">صيدلية النخبة</div><div class="ph-addr">حي المطار</div><div class="ph-open" style="color:#22a55e">● مفتوحة الآن</div></div></div>
+      <div class="ph-card"><div class="ph-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="ph-name">صيدلية الشفاء</div><div class="ph-addr">وسط المدينة</div><div class="ph-open" style="color:#22a55e">● مفتوحة الآن</div></div></div>
+      <div class="ph-card"><div class="ph-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="ph-name">صيدلية الأمل</div><div class="ph-addr">حي الزهور</div><div class="ph-open" style="color:var(--tm)">● مغلقة حالياً</div></div></div>
+      <div class="ph-card"><div class="ph-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="ph-name">صيدلية الحياة</div><div class="ph-addr">شارع الوحدة</div><div class="ph-open" style="color:#22a55e">● مفتوحة الآن</div></div></div>
+      <div class="ph-card"><div class="ph-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="ph-name">صيدلية الوفاء</div><div class="ph-addr">حي الصداقة</div><div class="ph-open" style="color:#22a55e">● مفتوحة الآن</div></div></div>
+    </div>
+  </div>
+</div>
+
+{{-- قسم الخدمات --}}
+<div class="sec">
+  <div class="si">
+    <div style="text-align:center;margin-bottom:40px">
+      <div style="display:inline-block;background:var(--pl);color:var(--p);font-weight:700;font-size:12px;padding:6px 20px;border-radius:var(--rF);margin-bottom:14px;border:1px solid rgba(178,221,184,.3)">خدماتنا</div>
+      <h2 style="font-size:28px;font-weight:900;color:var(--td);margin-bottom:10px">خدماتنا الأساسية</h2>
+      <p style="font-size:15px;color:var(--tm);max-width:500px;margin:0 auto;line-height:1.75">رعاية صحية متكاملة في منصة واحدة — ثلاث خدمات رئيسية لتوفير رعاية شاملة وسهلة الوصول</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+
+      <div style="background:var(--card);border:1.5px solid var(--bdr);border-radius:24px;padding:32px;transition:.25s;position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(178,221,184,.3)';this.style.borderColor='var(--p)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='var(--bdr)'">
+        <div style="position:absolute;width:120px;height:120px;border-radius:50%;background:var(--pl);top:-30px;left:-30px;opacity:.5"></div>
+        <div style="width:64px;height:64px;border-radius:20px;background:linear-gradient(135deg,var(--p),var(--pd));display:flex;align-items:center;justify-content:center;margin-bottom:20px;box-shadow:var(--sp);position:relative">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+        </div>
+        <div style="display:inline-block;background:var(--pl);color:var(--p);font-size:11px;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:12px">نظام الحجوزات</div>
+        <h3 style="font-size:18px;font-weight:900;color:var(--td);margin-bottom:10px">احجز موعدك الآن</h3>
+        <p style="font-size:13.5px;color:var(--tm);line-height:1.8">حجز مواعيد مع الأطباء في العيادات المتعاقدة، مع نظام إدارة ذكي يقلل من زمن الانتظار وتذكرة دخول رقمية فورية.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:16px">
+          <div style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--td);font-weight:600"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>تذكرة رقمية فورية</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--td);font-weight:600"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>إشعار تلقائي قبل الموعد</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--td);font-weight:600"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>إلغاء وإعادة جدولة مجاناً</div>
+        </div>
+      </div>
+
+      <div style="background:linear-gradient(160deg,var(--pdd),var(--p));border-radius:24px;padding:32px;transition:.25s;position:relative;overflow:hidden;transform:translateY(-8px);box-shadow:0 20px 50px rgba(106,158,117,.35)" onmouseover="this.style.transform='translateY(-14px)'" onmouseout="this.style.transform='translateY(-8px)'">
+        <div style="position:absolute;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.08);top:-40px;left:-40px"></div>
+        <div style="width:64px;height:64px;border-radius:20px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;margin-bottom:20px;position:relative;border:1.5px solid rgba(255,255,255,.3)">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+        </div>
+        <div style="display:inline-block;background:rgba(255,255,255,.2);color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:12px">الزيارات المنزلية</div>
+        <h3 style="font-size:18px;font-weight:900;color:#fff;margin-bottom:10px">الطبيب يأتيك</h3>
+
 
 {{-- قسم الشراكة --}}
 <div class="sec" style="background:var(--card)">
@@ -404,6 +438,8 @@
 
   </div>
 </div>
+
+
 @endsection
 
 @section('scripts')
