@@ -54,4 +54,9 @@ public function joinStore(\Illuminate\Http\Request $request)
 {
     return redirect()->route('join')->with('success', 'تم استلام طلبك وسنتواصل معك قريباً! 💚');
 }
+
+public function admin()
+{
+    return view('pages.admin');
+}
 }

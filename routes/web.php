@@ -13,3 +13,4 @@ Route::get('/appointments', [PageController::class, 'appointments'])->name('appo
 Route::get('/consultation', [PageController::class, 'consultation'])->name('consultation');
 Route::get('/join', [PageController::class, 'join'])->name('join');
 Route::post('/join', [PageController::class, 'joinStore'])->name('join.store');
+Route::get('/admin', [PageController::class, 'admin'])->name('admin');
