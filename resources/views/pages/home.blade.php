@@ -35,16 +35,10 @@
 .hero-vis svg{width:260px;height:260px;filter:drop-shadow(0 14px 28px rgba(90,174,122,0.18));animation:floatDoc 3.5s ease-in-out infinite}
 
 /* ══ ألوان SVG الدكتور ══ */
-.doc-skin{fill:#FDDAB7}
-.doc-hair{fill:#1C1C3A}
-.doc-coat{fill:white}
-.doc-pants{fill:#1E3A5F}
-.doc-shoes{fill:#0d2b35}
-.doc-eye-white{fill:white}
-.doc-eye-dark{fill:#1C1C3A}
-.doc-steth{stroke:#5AAE7A}
-.doc-heart{fill:#5AAE7A}
-
+.doc-skin{fill:#FDDAB7}.doc-hair{fill:#1C1C3A}.doc-coat{fill:white}
+.doc-pants{fill:#1E3A5F}.doc-shoes{fill:#0d2b35}
+.doc-eye-white{fill:white}.doc-eye-dark{fill:#1C1C3A}
+.doc-steth{stroke:#5AAE7A}.doc-heart{fill:#5AAE7A}
 [data-theme="dark"] .doc-skin{fill:#C8956A}
 [data-theme="dark"] .doc-hair{fill:#6B5B8A}
 [data-theme="dark"] .doc-coat{fill:#2D2040}
@@ -54,6 +48,27 @@
 [data-theme="dark"] .doc-eye-dark{fill:#2D2040}
 [data-theme="dark"] .doc-steth{stroke:#9B85CC}
 [data-theme="dark"] .doc-heart{fill:#9B85CC}
+
+/* ══ أيقونات التخصصات ══ */
+.sp-ico{width:56px;height:56px;margin:0 auto 12px;border-radius:16px;background:var(--pl);display:flex;align-items:center;justify-content:center;transition:.3s}
+.sp-ico svg{width:32px;height:32px;transition:.3s}
+.sp-card:hover .sp-ico,.sp-card.on .sp-ico{background:linear-gradient(135deg,var(--p),var(--pd));box-shadow:0 6px 18px rgba(90,174,122,.35)}
+.sp-card:hover .sp-ico svg *,.sp-card.on .sp-ico svg *{stroke:#fff!important;fill:none!important}
+.ico-heart{fill:none;stroke:#e74c3c;stroke-width:1.8;stroke-linecap:round}
+.ico-bone{fill:none;stroke:#8B7355;stroke-width:1.8;stroke-linecap:round}
+.ico-brain{fill:none;stroke:#9B59B6;stroke-width:1.8;stroke-linecap:round}
+.ico-tooth{fill:none;stroke:#3498DB;stroke-width:1.8;stroke-linecap:round}
+.ico-eye{fill:none;stroke:#1ABC9C;stroke-width:1.8;stroke-linecap:round}
+.ico-skin{fill:none;stroke:#F39C12;stroke-width:1.8;stroke-linecap:round}
+.ico-lungs{fill:none;stroke:#2980B9;stroke-width:1.8;stroke-linecap:round}
+.ico-baby{fill:none;stroke:#E91E63;stroke-width:1.8;stroke-linecap:round}
+.ico-internal{fill:none;stroke:#27AE60;stroke-width:1.8;stroke-linecap:round}
+.ico-surgery{fill:none;stroke:#C0392B;stroke-width:1.8;stroke-linecap:round}
+.ico-urology{fill:none;stroke:#2471A3;stroke-width:1.8;stroke-linecap:round}
+.ico-ear{fill:none;stroke:#7D3C98;stroke-width:1.8;stroke-linecap:round}
+.ico-psych{fill:none;stroke:#5DADE2;stroke-width:1.8;stroke-linecap:round}
+.ico-diabetes{fill:none;stroke:#E67E22;stroke-width:1.8;stroke-linecap:round}
+.ico-default{fill:none;stroke:var(--p);stroke-width:1.8;stroke-linecap:round}
 
 /* ══ HELP POPUP ══ */
 .help-btn{width:34px;height:34px;border-radius:50%;background:var(--pl);border:1.5px solid var(--bdr);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;font-weight:900;color:var(--p);font-family:var(--font);transition:.2s;flex-shrink:0}
@@ -69,8 +84,7 @@
 .help-tab{padding:8px 16px;border-radius:var(--rF) var(--rF) 0 0;font-size:13px;font-weight:700;color:var(--tm);border:none;background:none;cursor:pointer;font-family:var(--font);transition:.2s;border-bottom:2px solid transparent;margin-bottom:-1px}
 .help-tab.on{color:var(--p);border-bottom-color:var(--p);background:var(--pl)}
 .help-body{padding:24px;overflow-y:auto;flex:1}
-.help-panel{display:none}
-.help-panel.on{display:block}
+.help-panel{display:none}.help-panel.on{display:block}
 .step{display:flex;gap:16px;margin-bottom:22px;align-items:flex-start}
 .step-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;flex-shrink:0}
 .step-body h4{font-size:14px;font-weight:800;color:var(--td);margin-bottom:4px}
@@ -196,8 +210,6 @@
         <div class="stat"><b>35+</b><span>موعد متاح</span></div>
       </div>
     </div>
-
-    {{-- ── Doctor SVG مع CSS classes للوضع الليلي ── --}}
     <div class="hero-vis">
       <svg id="doctor-svg" viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
         <ellipse cx="155" cy="368" rx="68" ry="9" fill="rgba(90,174,122,0.1)"/>
@@ -363,35 +375,14 @@
   <div class="si">
     <div class="sh"><div class="eyebrow">انضم إلينا</div><h2>رسالتنا ودعوة للتعاون</h2><p>نسعى لتقديم رعاية صحية ممتازة بأقل تكلفة ممكنة — نرحب بشراكتكم ندعو الشركاء للانضمام في رحلة تطوير الرعاية الصحية في ليبيا.</p></div>
     <div class="partner-grid">
-      <div class="partner-card">
-        <div style="width:60px;height:60px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;margin:0 auto 14px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
-        <h3 style="font-size:16px;font-weight:800;color:var(--td);margin-bottom:8px">الأطباء</h3>
-        <p style="font-size:13px;color:var(--tm);line-height:1.7;margin-bottom:16px">انضموا لتقديم خدمات طبية متميزة عبر منصة الزنتان وتوسيع نطاق وصولكم للمرضى.</p>
-        <a href="{{ route('join') }}" class="btn bo bsm" style="display:block;text-align:center">انضم كطبيب</a>
-      </div>
-      <div class="partner-card partner-card-featured">
-        <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;border:1.5px solid rgba(255,255,255,.3)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
-        <h3 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:8px">المصحات والمستشفيات</h3>
-        <p style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:16px">شراكة استراتيجية لتحسين الخدمات وزيادة الوصول للمرضى وتحديث نظام الحجوزات.</p>
-        <a href="{{ route('join') }}" style="display:block;padding:11px;background:#fff;color:var(--p);border-radius:10px;font-size:13px;font-weight:800;text-decoration:none;text-align:center">انضم كمستشفى</a>
-      </div>
-      <div class="partner-card">
-        <div style="width:60px;height:60px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;margin:0 auto 14px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="1.8" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-        <h3 style="font-size:16px;font-weight:800;color:var(--td);margin-bottom:8px">المراكز الصحية</h3>
-        <p style="font-size:13px;color:var(--tm);line-height:1.7;margin-bottom:16px">تعاون لخدمة المجتمع وتوسيع نطاق الرعاية الصحية في مدينة الزنتان وضواحيها.</p>
-        <a href="{{ route('join') }}" class="btn bo bsm" style="display:block;text-align:center">انضم كمركز صحي</a>
-      </div>
+      <div class="partner-card"><div style="width:60px;height:60px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;margin:0 auto 14px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><h3 style="font-size:16px;font-weight:800;color:var(--td);margin-bottom:8px">الأطباء</h3><p style="font-size:13px;color:var(--tm);line-height:1.7;margin-bottom:16px">انضموا لتقديم خدمات طبية متميزة عبر منصة الزنتان وتوسيع نطاق وصولكم للمرضى.</p><a href="{{ route('join') }}" class="btn bo bsm" style="display:block;text-align:center">انضم كطبيب</a></div>
+      <div class="partner-card partner-card-featured"><div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;border:1.5px solid rgba(255,255,255,.3)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div><h3 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:8px">المصحات والمستشفيات</h3><p style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:16px">شراكة استراتيجية لتحسين الخدمات وزيادة الوصول للمرضى وتحديث نظام الحجوزات.</p><a href="{{ route('join') }}" style="display:block;padding:11px;background:#fff;color:var(--p);border-radius:10px;font-size:13px;font-weight:800;text-decoration:none;text-align:center">انضم كمستشفى</a></div>
+      <div class="partner-card"><div style="width:60px;height:60px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;margin:0 auto 14px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="1.8" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3 style="font-size:16px;font-weight:800;color:var(--td);margin-bottom:8px">المراكز الصحية</h3><p style="font-size:13px;color:var(--tm);line-height:1.7;margin-bottom:16px">تعاون لخدمة المجتمع وتوسيع نطاق الرعاية الصحية في مدينة الزنتان وضواحيها.</p><a href="{{ route('join') }}" class="btn bo bsm" style="display:block;text-align:center">انضم كمركز صحي</a></div>
     </div>
     <div style="background:linear-gradient(135deg,var(--pdd),var(--p));border-radius:20px;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
-      <div>
-        <h3 style="color:#fff;font-size:20px;font-weight:900;margin-bottom:6px">نتشرف بالشراكة معكم 🤝</h3>
-        <p style="color:rgba(255,255,255,.85);font-size:14px">تواصلوا معنا الآن وسنرد عليكم في أقرب وقت لمناقشة تفاصيل الشراكة</p>
-      </div>
+      <div><h3 style="color:#fff;font-size:20px;font-weight:900;margin-bottom:6px">نتشرف بالشراكة معكم 🤝</h3><p style="color:rgba(255,255,255,.85);font-size:14px">تواصلوا معنا الآن وسنرد عليكم في أقرب وقت لمناقشة تفاصيل الشراكة</p></div>
       <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a href="https://wa.me/218931488889" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:13px 24px;background:#25D366;color:#fff;border-radius:12px;font-size:14px;font-weight:800;text-decoration:none">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          واتساب
-        </a>
+        <a href="https://wa.me/218931488889" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:13px 24px;background:#25D366;color:#fff;border-radius:12px;font-size:14px;font-weight:800;text-decoration:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>واتساب</a>
         <a href="{{ route('join') }}" style="display:inline-flex;align-items:center;gap:8px;padding:13px 24px;background:rgba(255,255,255,.15);color:#fff;border-radius:12px;font-size:14px;font-weight:800;text-decoration:none;border:1.5px solid rgba(255,255,255,.3)">طلب الانضمام</a>
       </div>
     </div>
@@ -416,8 +407,6 @@ function toggleFaq(el){
   document.querySelectorAll('.faq').forEach(function(f){ if(f!==el) f.classList.remove('open'); });
 }
 document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeHelp(); });
-
-/* زر المساعدة في الـ navbar */
 document.addEventListener('DOMContentLoaded', function(){
   var navRight = document.querySelector('.nav-right');
   if(navRight){
@@ -429,6 +418,26 @@ document.addEventListener('DOMContentLoaded', function(){
     navRight.insertBefore(helpBtn, navRight.firstChild);
   }
 });
+
+/* ══ رسمات التخصصات ══ */
+function getSpecSVG(n) {
+  n = n || '';
+  if (/قلب|قلبي|cardiov/i.test(n)) return '<svg viewBox="0 0 32 32" fill="none"><path class="ico-heart" d="M16 27S4 19 4 11C4 7.5 6.5 5 9.5 5c2 0 4 1.2 5.5 3C16.5 6.2 18.5 5 20.5 5 23.5 5 26 7.5 26 11c0 8-10 16-10 16z"/><polyline class="ico-heart" points="2,16 6,16 9,11 12,21 15,14 17,18 20,16 30,16"/></svg>';
+  if (/عظ|كسور|مفاص|عمود|ortho/i.test(n)) return '<svg viewBox="0 0 32 32" fill="none"><path class="ico-bone" d="M10 6c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 2-1.8 2l-4.4 12.5"/><path class="ico-bone" d="M12.2 20.5L7.8 7c0 0-2-2-2-4s1.8-4 4-4 4 1.8 4 4"/><path class="ico-bone" d="M22 26c0 2.2-1.8 4-4 4s-4-1.8-4-4 1.8-2 1.8-2l4.4-12.5"/><path class="ico-bone" d="M19.8 11.5L24.2 25c0 0 2 2 2 4s-1.8 4-4 4-4-1.8-4-4"/></svg>';
+  if (/مخ|أعصاب|عصب|neuro|دماغ/i.test(n)) return '<svg viewBox="0 0 32 32" fill="none"><path class="ico-brain" d="M16 4C10 4 6 8 6 13c0 2.5 1 4.5 2.5 6L8 24h16l-.5-5C25 17.5 26 15.5 26 13c0-5-4-9-10-9z"/><line class="ico-brain" x1="16" y1="4" x2="16" y2="24"/><path class="ico-brain" d="M10 10c1.5 1 3 1 4 2.5"/><path class="ico-brain" d="M22 10c-1.5 1-3 1-4 2.5"/><path class="ico-brain" d="M9 16c1.5.5 3 .5 4.5 0"/><path class="ico-brain" d="M23 16c-1.5.5-3 .5-4.5 0"/></svg>';
+  if (/أسنان|سنان|سن|dental|tooth/i.test(n)) return '<svg viewBox="0 0 32 32" fill="none"><path class="ico-tooth" d="M8 4c-3 0-5 2.5-5 5 0 4 2 6 3 9 .5 1.5 1 4 2 5 .5 1 1.5 1 2 0 .5-1 1-4 2-5 .5-.8 1.5-.8 2 0 1 1 1.5 4 2 5 .5 1 1.5 1 2 0 1-1 1.5-3.5 2-5 1-3 3-5 3-9 0-2.5-2-5-5-5-1.5 0-3 .8-4 2-1-1.2-2.5-2-4-2z"/><line class="ico-tooth" x1="12" y1="7" x2="12" y2="12"/><line class="ico-tooth" x1="9" y1="9.5" x2="15" y2="9.5"/></svg>';
+  if (/عيون|عين|بصر|ophthal|نظر/i.test(n)) return '<svg viewBox="0 0 32 32" fill="none"><path class="ico-eye" d="M2 16S7 7 16 7s14 9 14 9-5 9-14 9S2 16 2 16z"/><circle class="ico-eye" cx="16" cy="16" r="4"/><circle cx="17.5" cy="14.5" r="1.5" fill="#1ABC9C"/><line class="ico-eye" x1="16" y1="4" x2="16" y2="7"/><line class="ico-eye" x1="16" y1="25" x2="16" y2="28"/></svg>';
+  if (/جلد|جلدي|derma|بشرة/i.test(n)) return '<svg viewBox="0 0 32 32" fill="none"><rect class="ico-skin" x="4" y="4" width="24" height="24" rx="8"/><circle class="ico-skin" cx="11" cy="11" r="2"/><circle class="ico-skin" cx="21" cy="11" r="2"/><circle class="ico-skin" cx="11" cy="21" r="2"/><circle class="ico-skin" cx="21" cy="21" r="2"/><circle class="ico-skin" cx="16" cy="16" r="2.5"/></svg>';
+  if (/رئ|صدر|تنفس|pulm|chest/i.test(n)) return '<svg viewBox="0 0 32 32" fill="none"><path class="ico-lungs" d="M16 4v10"/><path class="ico-lungs" d="M16 14C14 14 8 13 6 16c-2 3-2 7 0 9 1.5 1.5 4 2 6 1l4-2"/><path class="ico-lungs" d="M16 14c2 0 8-1 10 2 2 3 2 7 0 9-1.5 1.5-4 2-6 1l-4-2"/><ellipse class="ico-lungs" cx="9" cy="21" rx="3" ry="4"/><ellipse class="ico-lungs" cx="23" cy="21" rx="3" ry="4"/></svg>';
+  if (/أطفال|طفل|pediatr/i.test(n)) return '<svg viewBox="0 0 32 32" fill="none"><circle class="ico-baby" cx="16" cy="10" r="6"/><path class="ico-baby" d="M13 9.5C13.5 9 14.5 9 15 9.5"/><path class="ico-baby" d="M17 9.5C17.5 9 18.5 9 19 9.5"/><path class="ico-baby" d="M13.5 12C14.3 13 17.7 13 18.5 12"/><path class="ico-baby" d="M10 24c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>';
+  if (/باطن|داخل|internal|عام/i.test(n)) return '<svg viewBox="0 0 32 32" fill="none"><circle class="ico-internal" cx="16" cy="16" r="12"/><path class="ico-internal" d="M16 8v4"/><path class="ico-internal" d="M16 12c-2.5 0-4 1.5-4 3.5 0 3 4 4 4 7"/><line class="ico-internal" x1="24" y1="16" x2="27" y2="16"/><line class="ico-internal" x1="5" y1="16" x2="8" y2="16"/></svg>';
+  if (/جراح|surgery|عمليات/i.test(n)) return '<svg viewBox="0 0 32 32" fill="none"><path class="ico-surgery" d="M8 8l16 16"/><path class="ico-surgery" d="M24 8L8 24"/><circle class="ico-surgery" cx="8" cy="8" r="3"/><circle class="ico-surgery" cx="24" cy="8" r="3"/><path class="ico-surgery" d="M12 22l2-2 2 2 2-2 2 2"/></svg>';
+  if (/بول|كلى|مسالك|nephro|uro/i.test(n)) return '<svg viewBox="0 0 32 32" fill="none"><path class="ico-urology" d="M10 6C7 6 5 9 5 12c0 4 2 6 5 8l2 6h8l2-6c3-2 5-4 5-8 0-3-2-6-5-6-2 0-3.5 1-4 2.5C17.5 7 16 6 10 6z"/><line class="ico-urology" x1="16" y1="12" x2="16" y2="20"/></svg>';
+  if (/أذن|أنف|حنجرة|ENT|سمع/i.test(n)) return '<svg viewBox="0 0 32 32" fill="none"><path class="ico-ear" d="M20 6C14 6 10 10 10 15c0 3 1.5 5.5 4 7l1 5h6l1-4c2-1 4-3 4-6 0-4-3-8-6-11z"/><path class="ico-ear" d="M14 15c0-3 2-5 5-5"/><path class="ico-ear" d="M10 12C8 10 6 10 5 12s0 5 2 6"/></svg>';
+  if (/نفس|عقل|psych|ذهن/i.test(n)) return '<svg viewBox="0 0 32 32" fill="none"><path class="ico-psych" d="M16 4C10 4 6 8 6 13c0 2.5 1 4.5 2.5 6l-.5 5h16l-.5-5C25 17.5 26 15.5 26 13c0-5-4-9-10-9z"/><path class="ico-psych" d="M12 13c1-2 2-3 4-3s3 1 4 3"/><path class="ico-psych" d="M12 18c1.5 2 6.5 2 8 0"/></svg>';
+  if (/سكر|غدد|endoc|هرمون/i.test(n)) return '<svg viewBox="0 0 32 32" fill="none"><circle class="ico-diabetes" cx="16" cy="16" r="6"/><path class="ico-diabetes" d="M16 4v4M16 24v4M4 16h4M24 16h4"/><line class="ico-diabetes" x1="13" y1="16" x2="19" y2="16"/><line class="ico-diabetes" x1="16" y1="13" x2="16" y2="19"/></svg>';
+  return '<svg viewBox="0 0 32 32" fill="none"><path class="ico-default" d="M2 16h5l3-9 4 18 4-12 3 6 3-3h6"/></svg>';
+}
 
 /* ══ DATA ══ */
 async function loadHomeData() {
@@ -442,7 +451,7 @@ async function loadHomeData() {
     let specHtml = '';
     specs.forEach(function(s) {
       const count = doctors.filter(function(d){ return d.specialty_id == s.id; }).length;
-      specHtml += '<div class="sp-card"><div class="sp-ico"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h4>' + s.name_ar + '</h4><span>' + count + ' طبيب</span></div>';
+      specHtml += '<div class="sp-card"><div class="sp-ico">' + getSpecSVG(s.name_ar) + '</div><h4>' + s.name_ar + '</h4><span>' + count + ' طبيب</span></div>';
     });
     document.getElementById('home-specs').innerHTML = specHtml || '<p style="grid-column:1/-1;text-align:center;color:var(--tm)">لا توجد تخصصات</p>';
     let docHtml = '';
