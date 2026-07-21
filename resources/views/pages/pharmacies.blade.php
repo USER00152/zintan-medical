@@ -4,7 +4,6 @@
 
 @section('styles')
 <style>
-/* ── Hero الصيدليات: لون النص داكن يُقرأ في الوضع النهاري ── */
 .ph-hero{
   background:linear-gradient(135deg,var(--pdd),var(--p));
   border-radius:var(--r22);padding:40px;margin-bottom:28px;
@@ -12,11 +11,10 @@
   display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center
 }
 .ph-hero::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.08);top:-80px;left:-60px}
-/* العنوان الرئيسي: أبيض على خلفية خضراء — مقروء جداً */
-.ph-hero h2{color:#fff;font-size:26px;font-weight:900;margin-bottom:8px}
-.ph-hero p{color:rgba(255,255,255,.9);font-size:14px;line-height:1.7}
-.ph-hero-feat{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.95);font-size:13px;font-weight:600}
-.ph-hero-feat svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round}
+.ph-hero h2{color:#fff;font-size:26px;font-weight:900;margin-bottom:8px;text-shadow:0 1px 4px rgba(0,0,0,.15)}
+.ph-hero p{color:rgba(255,255,255,.95);font-size:14px;line-height:1.7;font-weight:600}
+.ph-hero-feat{display:flex;align-items:center;gap:7px;color:#fff;font-size:13px;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.1)}
+.ph-hero-feat svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round}
 
 .ph-search{background:var(--card);border:1.5px solid var(--bdr);border-radius:var(--r22);padding:16px;margin-bottom:24px;display:grid;grid-template-columns:1fr auto auto;gap:12px;box-shadow:var(--s1)}
 .filter-btn{padding:11px 18px;border-radius:var(--r8);border:1.5px solid var(--bdr);background:var(--card);color:var(--td);font-size:13px;font-weight:700;cursor:pointer;font-family:var(--font);transition:.2s;display:flex;align-items:center;gap:7px;white-space:nowrap}
@@ -41,7 +39,6 @@
 .ph-btn-p{background:var(--p);color:#fff}.ph-btn-p:hover{background:var(--pd)}
 .ph-btn-o{background:var(--pl);color:var(--p);border:1.5px solid var(--bdr)}.ph-btn-o:hover{border-color:var(--p)}
 
-/* Modal */
 .ph-modal{display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px}
 .ph-modal.open{display:flex}
 .ph-modal-card{background:var(--card);border-radius:var(--r22);width:100%;max-width:600px;max-height:90vh;overflow-y:auto;box-shadow:0 30px 60px rgba(0,0,0,.2)}
@@ -73,9 +70,7 @@
 .chat-inp-ph input:focus{outline:none;border-color:var(--p)}
 .send-btn-ph{width:38px;height:38px;border-radius:50%;background:var(--p);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
 .send-btn-ph svg{width:15px;height:15px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
-
 @keyframes floatDoc{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-
 @media(max-width:768px){
   .ph-hero{grid-template-columns:1fr!important}
   .ph-hero>div:last-child{display:none}
@@ -97,7 +92,6 @@
 
 <div class="si" style="padding-top:28px;padding-bottom:60px">
 
-  <!-- Hero — النص أبيض على خضراء، مقروء في الوضعين -->
   <div class="ph-hero">
     <div style="position:relative;z-index:1">
       <h2>صحتك في أيدٍ أمينة 💊</h2>
@@ -122,7 +116,6 @@
     </div>
   </div>
 
-  <!-- بحث وفلاتر -->
   <div class="ph-search">
     <div class="iw">
       <input type="text" id="ph-search" placeholder="ابحث عن صيدلية أو دواء..." oninput="filterPharmacies()">
@@ -132,13 +125,11 @@
     <button class="filter-btn" id="filter-open" onclick="setFilter('open',this)">● مفتوحة الآن</button>
   </div>
 
-  <!-- الصيدليات -->
   <div class="ph-grid-big" id="ph-grid">
     <div class="loading-state" style="grid-column:1/-1">جاري التحميل...</div>
   </div>
 </div>
 
-<!-- نافذة الصيدلية -->
 <div class="ph-modal" id="ph-modal">
   <div class="ph-modal-card">
     <div class="ph-modal-hd">
@@ -193,6 +184,20 @@ function renderPharmacies(list) {
     html += '</div></div></div>';
   });
   document.getElementById('ph-grid').innerHTML = html;
+
+  // highlight من URL
+  const hl = new URLSearchParams(window.location.search).get('highlight');
+  if (hl) {
+    setTimeout(function(){
+      document.querySelectorAll('.ph-card-big').forEach(function(el){
+        if (el.getAttribute('data-name') === hl) {
+          el.scrollIntoView({behavior:'smooth',block:'center'});
+          el.style.border = '2px solid var(--p)';
+          el.style.boxShadow = '0 0 0 4px rgba(90,174,122,.2)';
+        }
+      });
+    }, 400);
+  }
 }
 
 function setFilter(type, btn) {
@@ -290,12 +295,8 @@ function updateChat(id) {
   el.scrollTop = el.scrollHeight;
 }
 
-function closeModal() {
-  document.getElementById('ph-modal').classList.remove('open');
-}
-document.getElementById('ph-modal').addEventListener('click', function(e){
-  if(e.target === this) closeModal();
-});
+function closeModal() { document.getElementById('ph-modal').classList.remove('open'); }
+document.getElementById('ph-modal').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
 
 renderPharmacies(pharmacies);
 </script>
