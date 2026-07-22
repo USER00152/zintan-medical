@@ -5,16 +5,16 @@
 @section('styles')
 <style>
 .ph-hero{
-  background:linear-gradient(135deg,var(--pdd),var(--p));
+  background:linear-gradient(135deg,var(--pl),var(--pll));
   border-radius:var(--r22);padding:40px;margin-bottom:28px;
   position:relative;overflow:hidden;
   display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center
 }
 .ph-hero::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.08);top:-80px;left:-60px}
-.ph-hero h2{color:#fff;font-size:26px;font-weight:900;margin-bottom:8px;text-shadow:0 1px 4px rgba(0,0,0,.15)}
-.ph-hero p{color:rgba(255,255,255,.95);font-size:14px;line-height:1.7;font-weight:600}
-.ph-hero-feat{display:flex;align-items:center;gap:7px;color:#fff;font-size:13px;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.1)}
-.ph-hero-feat svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round}
+.ph-hero h2{color:var(--td);font-size:26px;font-weight:900;margin-bottom:8px}
+.ph-hero p{color:var(--tm);font-size:14px;line-height:1.7;font-weight:600}
+.ph-hero-feat{display:flex;align-items:center;gap:7px;color:var(--td);font-size:13px;font-weight:700}
+.ph-hero-feat svg{width:14px;height:14px;fill:none;stroke:var(--p);stroke-width:2.5;stroke-linecap:round}
 
 .ph-search{background:var(--card);border:1.5px solid var(--bdr);border-radius:var(--r22);padding:16px;margin-bottom:24px;display:grid;grid-template-columns:1fr auto auto;gap:12px;box-shadow:var(--s1)}
 .filter-btn{padding:11px 18px;border-radius:var(--r8);border:1.5px solid var(--bdr);background:var(--card);color:var(--td);font-size:13px;font-weight:700;cursor:pointer;font-family:var(--font);transition:.2s;display:flex;align-items:center;gap:7px;white-space:nowrap}
@@ -128,6 +128,45 @@
   <div class="ph-grid-big" id="ph-grid">
     <div class="loading-state" style="grid-column:1/-1">جاري التحميل...</div>
   </div>
+
+  <div style="text-align:center;margin-top:36px;padding:28px;background:var(--card);border-radius:var(--r22);border:1.5px solid var(--bdr)">
+    <svg viewBox="0 0 520 160" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:520px;display:block;margin:0 auto">
+      <style>
+        @keyframes phDraw{to{stroke-dashoffset:0}}
+        @keyframes phHeart{0%,100%{transform:translate(210px,30px) scale(1)}14%{transform:translate(210px,30px) scale(1.25)}28%{transform:translate(210px,30px) scale(1)}42%{transform:translate(210px,30px) scale(1.12)}56%{transform:translate(210px,30px) scale(1)}}
+        @keyframes phFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+      </style>
+      <rect x="0" y="55" width="520" height="50" rx="10" fill="var(--pll)" opacity="0.7"/>
+      <polyline points="10,80 55,80 78,55 102,105 122,35 148,80 168,65 188,80 250,80 310,80 380,80 440,80 510,80"
+        fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+        style="stroke-dasharray:600;stroke-dashoffset:600;animation:phDraw 2.2s ease forwards 0.3s"/>
+      <circle r="5" fill="var(--p)">
+        <animateMotion dur="3s" repeatCount="indefinite" begin="2.5s"
+          path="M10,80 55,80 78,55 102,105 122,35 148,80 168,65 188,80 310,80 440,80 510,80"/>
+      </circle>
+      <g style="animation:phFloat 3s ease-in-out infinite">
+        <rect x="42" y="8" width="16" height="42" rx="8" fill="var(--p)" opacity="0.85"/>
+        <rect x="28" y="22" width="44" height="16" rx="8" fill="var(--p)" opacity="0.85"/>
+        <circle cx="50" cy="30" r="28" fill="none" stroke="var(--bdr)" stroke-width="1.5"/>
+      </g>
+      <g style="animation:phFloat 3.5s ease-in-out infinite 0.5s">
+        <ellipse cx="350" cy="28" rx="14" ry="22" fill="var(--p)" opacity="0.8"/>
+        <ellipse cx="350" cy="28" rx="14" ry="10" fill="var(--pd)"/>
+        <line x1="350" y1="16" x2="350" y2="40" stroke="white" stroke-width="1.2" opacity="0.4"/>
+      </g>
+      <g style="animation:phFloat 4s ease-in-out infinite 1s">
+        <circle cx="450" cy="30" r="20" fill="var(--pl)" stroke="var(--p)" stroke-width="2.5"/>
+        <line x1="436" y1="30" x2="464" y2="30" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="450" y1="16" x2="450" y2="44" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+      <g style="animation:phHeart 1.5s ease-in-out infinite">
+        <path d="M0 14C0 14-12-4-12-10C-12-16-6-20 0-14C6-20 12-16 12-10C12-4 0 14 0 14Z" fill="var(--p)" opacity="0.85"/>
+      </g>
+      <text x="260" y="140" text-anchor="middle" fill="var(--p)" font-family="Tajawal,sans-serif" font-size="13" font-weight="700">صيدليات الزنتان — خدمة موثوقة على مدار الساعة</text>
+    </svg>
+    <p style="color:var(--tm);font-size:13px;margin-top:6px">اضغط على أي صيدلية للتواصل المباشر مع الصيدلي</p>
+  </div>
+
 </div>
 
 <div class="ph-modal" id="ph-modal">

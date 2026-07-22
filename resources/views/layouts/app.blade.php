@@ -33,7 +33,7 @@
   --sp:0 8px 28px rgba(155,133,204,.5);
 }
 [data-theme="dark"] .nav{background:rgba(35,24,48,.97);border-color:#3D2D55}
-[data-theme="dark"] .nav-book-bar{background:#2D2040;border-color:#3D2D55}
+
 [data-theme="dark"] .mob-tabs-bar{background:#231830;border-color:#3D2D55}
 [data-theme="dark"] .footer{background:linear-gradient(160deg,#130D1E,#231830)}
 [data-theme="dark"] .sp-card,[data-theme="dark"] .dc,[data-theme="dark"] .fc,
@@ -74,33 +74,7 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
 .nt:hover,.nt.on{color:var(--p);background:var(--pl)}
 .nt.bk{background:var(--p);color:#fff;border-radius:var(--rF)}.nt.bk:hover{background:var(--pd)}
 
-/* ══ شريط الحجز تحت التبويبات — لابتوب فقط ══ */
-.nav-book-bar{
-  width:100%;
-  background:linear-gradient(135deg,var(--pll),var(--pl));
-  border-bottom:1.5px solid var(--bdr);
-  padding:10px var(--side-pad);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.nav-book-bar-inner{
-  max-width:var(--max-w);
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-.nav-book-bar-text{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:14px;
-  color:var(--tm);
-  font-weight:600;
-}
-.nav-book-bar-text svg{width:18px;height:18px;fill:none;stroke:var(--p);stroke-width:2;stroke-linecap:round;flex-shrink:0}
+
 
 /* ══ MOBILE TABS BAR ══ */
 .mob-tabs-bar{display:none;background:var(--card);border-bottom:1.5px solid var(--bds);padding:0 12px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;position:sticky;top:60px;z-index:198;gap:4px;width:100%;height:44px;align-items:center}
@@ -251,7 +225,7 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
 @media(max-width:900px){
   :root{--side-pad:20px}
   .nav-tabs-wrap{display:none}
-  .nav-book-bar{display:none}
+
   .mob-tabs-bar{display:flex}
   .fg-grid{grid-template-columns:1fr 1fr}
   .doc-page-grid{grid-template-columns:1fr}
@@ -373,16 +347,7 @@ body{font-family:var(--font);direction:rtl;background:var(--bg);color:var(--td);
   </div>
 </nav>
 
-<!-- شريط الحجز تحت الـ nav — لابتوب فقط -->
-<div class="nav-book-bar">
-  <div class="nav-book-bar-inner">
-    <div class="nav-book-bar-text">
-      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-      احجز موعدك الآن مع أفضل أطباء مدينة الزنتان — سريع، مجاني، بدون انتظار
-    </div>
-    <a href="{{ route('booking') }}" class="btn bp bsm">احجز موعداً الآن ←</a>
-  </div>
-</div>
+
 
 <!-- تبويبات موبايل -->
 <div class="mob-tabs-bar">
