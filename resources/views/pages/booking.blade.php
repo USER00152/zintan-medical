@@ -117,9 +117,10 @@
           </select>
         </div>
         <div class="fg">
-  <label>التاريخ المفضل *</label>
-  <div class="iw"><input type="date" id="inp-date" dir="ltr" style="padding-right:13px;padding-left:42px;text-align:right"><span class="iw-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span></div>
-</div>
+          <label>التاريخ المفضل *</label>
+          <div class="iw"><input type="date" id="inp-date" dir="ltr" style="text-align:right"><span class="iw-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span></div>
+        </div>
+      </div>
 
       <div class="fg">
         <label>ملاحظات إضافية (اختياري)</label>
