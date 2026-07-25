@@ -118,7 +118,7 @@
         </div>
         <div class="fg">
           <label>التاريخ المفضل *</label>
-          <div class="iw"><input type="date" id="inp-date"><span class="iw-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span></div>
+<div class="iw"><input type="date" id="inp-date" lang="en-GB"><span class="iw-ic">
         </div>
       </div>
 

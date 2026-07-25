@@ -191,10 +191,6 @@
   <div class="hbc hbc1"></div><div class="hbc hbc2"></div>
   <div class="hero-in">
     <div class="hero-ct">
-      <div class="hbadge">
-        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        منصة طبية موثوقة · الزنتان
-      </div>
       <h1>رعايتك الصحية<br><span>في يدك الآن</span></h1>
       <div class="hero-qs">احجز موعدك بثوانٍ وودّع طوابير الانتظار</div>
       <p class="hero-p">منصة إلكترونية تجمع أفضل الأطباء والعيادات في مدينة الزنتان — احجز موعدك وتواصل مع طبيبك بكل سهولة وأمان.</p>
