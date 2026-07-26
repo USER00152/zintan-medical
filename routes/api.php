@@ -38,4 +38,19 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/reviews', [ReviewController::class, 'store']);
     
     Route::get('/doctors/{doctorId}/available-slots', [ScheduleController::class, 'availableSlots']);
+
+    // ══ إدارة التخصصات (Admin) ══
+    Route::post('/specialties', [SpecialtyController::class, 'store']);
+    Route::delete('/specialties/{id}', [SpecialtyController::class, 'destroy']);
+
+    // ══ إدارة العيادات (Admin) ══
+    Route::post('/clinics', [ClinicController::class, 'store']);
+    Route::delete('/clinics/{id}', [ClinicController::class, 'destroy']);
+
+    // ══ إدارة الأطباء (Admin) ══
+    Route::post('/doctors', [DoctorController::class, 'store']);
+    Route::delete('/doctors/{id}', [DoctorController::class, 'destroy']);
+
+    // ══ تأكيد الموعد (Admin) ══
+    Route::post('/appointments/{id}/confirm', [AppointmentController::class, 'confirm']);
 });

@@ -75,4 +75,14 @@ class AppointmentController extends Controller
 
         return response()->json(['message' => 'تم إلغاء الموعد بنجاح']);
     }
+
+    public function confirm($id)
+    {
+        $appointment = AppointmentModel::find($id);
+        if (! $appointment) {
+            return response()->json(['message' => 'الموعد غير موجود'], 404);
+        }
+        $appointment->update(['status' => 'confirmed']);
+        return response()->json(['message' => 'تم تأكيد الموعد بنجاح', 'appointment' => $appointment]);
+    }
 }
