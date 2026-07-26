@@ -80,9 +80,9 @@
 
   {{-- البحث --}}
   <div class="srch">
-    <div class="iw"><input type="text" id="srch-name" placeholder="ابحث باسم الطبيب..."><span class="iw-ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
-    <select id="srch-spec" style="width:100%;padding:11px;border:1.5px solid var(--bdr);border-radius:var(--r8);font-size:13px;color:var(--td);background:var(--bg);font-family:var(--font)"><option value="">كل التخصصات</option></select>
-    <select id="srch-clinic" style="width:100%;padding:11px;border:1.5px solid var(--bdr);border-radius:var(--r8);font-size:13px;color:var(--td);background:var(--bg);font-family:var(--font)"><option value="">كل العيادات</option></select>
+    <div class="iw"><input type="text" id="srch-name" placeholder="ابحث باسم الطبيب..." oninput="filterDoctors()"><span class="iw-ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></div>
+    <select id="srch-spec" onchange="filterDoctors()" style="width:100%;padding:11px;border:1.5px solid var(--bdr);border-radius:var(--r8);font-size:13px;color:var(--td);background:var(--bg);font-family:var(--font)"><option value="">كل التخصصات</option></select>
+    <select id="srch-clinic" onchange="filterDoctors()" style="width:100%;padding:11px;border:1.5px solid var(--bdr);border-radius:var(--r8);font-size:13px;color:var(--td);background:var(--bg);font-family:var(--font)"><option value="">كل العيادات</option></select>
     <button class="btn bp" style="padding:11px 20px;font-size:13px" onclick="filterDoctors()">بحث</button>
   </div>
 
@@ -119,16 +119,20 @@
 <script>
 let allDoctors = [];
 let allSpecialties = [];
+let allClinics = [];
 
 async function loadData() {
     try {
-        const [docRes, specRes] = await Promise.all([
+        const [docRes, specRes, clinicRes] = await Promise.all([
             fetch(API + '/doctors', { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + token } }),
-            fetch(API + '/specialties', { headers: { 'Accept': 'application/json' } })
+            fetch(API + '/specialties', { headers: { 'Accept': 'application/json' } }),
+            fetch(API + '/clinics', { headers: { 'Accept': 'application/json' } })
         ]);
         allDoctors = await docRes.json();
         allSpecialties = await specRes.json();
+        allClinics = await clinicRes.json();
 
+        // فلتر التخصصات (checkboxes جانبية)
         let specHtml = '';
         allSpecialties.forEach(function(s) {
             const count = allDoctors.filter(function(d) { return d.specialty_id == s.id; }).length;
@@ -136,11 +140,20 @@ async function loadData() {
         });
         document.getElementById('spec-filters').innerHTML = specHtml || '<p style="color:var(--tm);font-size:13px">لا توجد تخصصات</p>';
 
+        // قائمة التخصص المنسدلة (شريط البحث)
         const specSelect = document.getElementById('srch-spec');
         allSpecialties.forEach(function(s) {
             const o = document.createElement('option');
             o.value = s.id; o.textContent = s.name_ar;
             specSelect.appendChild(o);
+        });
+
+        // قائمة العيادة المنسدلة — هذا كان ناقصاً وسبب المشكلة
+        const clinicSelect = document.getElementById('srch-clinic');
+        allClinics.forEach(function(c) {
+            const o = document.createElement('option');
+            o.value = c.id; o.textContent = c.name;
+            clinicSelect.appendChild(o);
         });
 
         if (document.getElementById('count-docs')) {
@@ -156,6 +169,7 @@ async function loadData() {
 function filterDoctors() {
     const name = document.getElementById('srch-name').value.trim().toLowerCase();
     const specId = document.getElementById('srch-spec').value;
+    const clinicId = document.getElementById('srch-clinic').value;
     const expMin = document.querySelector('input[name="exp"]:checked').value;
     const checkedSpecs = Array.from(document.querySelectorAll('#spec-filters input:checked')).map(function(i){return i.value});
 
@@ -165,6 +179,10 @@ function filterDoctors() {
         if (specId && d.specialty_id != specId) return false;
         if (checkedSpecs.length && !checkedSpecs.includes(String(d.specialty_id))) return false;
         if (expMin && d.years_experience < parseInt(expMin)) return false;
+        if (clinicId) {
+            const hasClinic = d.clinics && d.clinics.some(function(c){ return String(c.id) === String(clinicId); });
+            if (!hasClinic) return false;
+        }
         return true;
     });
     renderDoctors(filtered);
@@ -173,6 +191,7 @@ function filterDoctors() {
 function clearFilters() {
     document.getElementById('srch-name').value = '';
     document.getElementById('srch-spec').value = '';
+    document.getElementById('srch-clinic').value = '';
     document.querySelector('input[name="exp"]').checked = true;
     document.querySelectorAll('#spec-filters input').forEach(function(i){i.checked=false});
     renderDoctors(allDoctors);
