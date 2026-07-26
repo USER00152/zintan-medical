@@ -113,12 +113,20 @@
 .svc-badge{display:inline-flex;background:var(--pl);color:var(--p);font-size:11px;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:12px}
 .svc-badge-featured{background:rgba(255,255,255,.2);color:#fff}
 .svc-feat-item{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600}
+.svc-card-link{cursor:pointer;text-decoration:none;color:inherit}
+.svc-cta{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:13px;font-weight:800;color:var(--p)}
+.svc-cta-featured{color:#fff}
+.svc-cta svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;transition:.25s}
+.svc-card:hover .svc-cta svg{transform:translateX(-4px)}
+
 .partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px}
 .partner-card{background:var(--bg);border:1.5px solid var(--bdr);border-radius:20px;padding:28px;text-align:center;transition:.25s}
 .partner-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(178,221,184,.2);border-color:var(--p)}
 .partner-card-featured{background:linear-gradient(160deg,var(--pdd),var(--p));border:none;box-shadow:0 16px 40px rgba(106,158,117,.3)}
 .highlight-pulse{animation:highlightPop .8s ease-out}
 @keyframes highlightPop{0%{box-shadow:0 0 0 0 rgba(90,174,122,.5)}60%{box-shadow:0 0 0 12px rgba(90,174,122,.1)}100%{box-shadow:0 0 0 0 rgba(90,174,122,0)}}
+
+.fc-link{text-decoration:none;color:inherit;cursor:pointer}
 
 @media(max-width:768px){
   .sp-grid{grid-template-columns:repeat(2,1fr)!important}
@@ -293,9 +301,11 @@
 {{-- ══════════ SERVICES ══════════ --}}
 <div class="sec" id="section-services">
   <div class="si">
-    <div class="sh"><div class="eyebrow">خدماتنا</div><h2>خدماتنا الأساسية</h2><p>رعاية صحية متكاملة في منصة واحدة — ثلاث خدمات رئيسية لتوفير رعاية شاملة وسهلة الوصول</p></div>
+    <div class="sh"><div class="eyebrow">خدماتنا</div><h2>خدماتنا الأساسية</h2><p>رعاية صحية متكاملة في منصة واحدة — اضغط على أي خدمة للانتقال إليها مباشرة</p></div>
     <div class="svc-grid">
-      <div class="svc-card">
+
+      {{-- بطاقة 1: الحجوزات — رابط فعلي لصفحة الحجز --}}
+      <a href="{{ route('booking') }}" class="svc-card svc-card-link">
         <div class="svc-blob" style="width:120px;height:120px;top:-30px;left:-30px"></div>
         <div class="svc-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></div>
         <span class="svc-badge">نظام الحجوزات</span>
@@ -306,32 +316,40 @@
           <div class="svc-feat-item" style="color:var(--td)"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>إشعار تلقائي قبل الموعد</div>
           <div class="svc-feat-item" style="color:var(--td)"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>إلغاء وإعادة جدولة مجاناً</div>
         </div>
-      </div>
-      <div class="svc-card svc-card-featured">
+        <div class="svc-cta">احجز الآن <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></div>
+      </a>
+
+      {{-- بطاقة 2: تواصل مع طبيبك — رابط فعلي لصفحة التواصل --}}
+      <a href="{{ route('consultation') }}" class="svc-card svc-card-featured svc-card-link">
         <div class="svc-blob svc-blob-featured" style="width:150px;height:150px;top:-40px;left:-40px"></div>
         <div class="svc-blob svc-blob-featured" style="width:100px;height:100px;bottom:-20px;right:-20px;opacity:.06"></div>
-        <div class="svc-icon svc-icon-featured"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
-        <span class="svc-badge svc-badge-featured">الزيارات المنزلية</span>
-        <h3 style="font-size:18px;font-weight:900;color:#fff;margin-bottom:10px">الطبيب يأتيك</h3>
-        <p style="font-size:13.5px;color:rgba(255,255,255,.85);line-height:1.8">زيارات طبية منزلية، تحاليل، وأشعة — مع تتبع مباشر لموقع مقدم الخدمة وإشعار بموعد الوصول لراحة أكبر.</p>
+        <div class="svc-icon svc-icon-featured"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg></div>
+        <span class="svc-badge svc-badge-featured">تواصل مباشر</span>
+        <h3 style="font-size:18px;font-weight:900;color:#fff;margin-bottom:10px">تواصل مع طبيبك</h3>
+        <p style="font-size:13.5px;color:rgba(255,255,255,.85);line-height:1.8">أرسل استفساراتك ورسائلك مباشرة لطبيبك المعالج، وتابع ردوده أولاً بأول بكل أمان وخصوصية.</p>
         <div style="display:flex;flex-direction:column;gap:8px;margin-top:16px">
-          <div class="svc-feat-item" style="color:rgba(255,255,255,.9)"><span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>تتبع مباشر لموقع الطبيب</div>
-          <div class="svc-feat-item" style="color:rgba(255,255,255,.9)"><span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>تحاليل وأشعة منزلية</div>
-          <div class="svc-feat-item" style="color:rgba(255,255,255,.9)"><span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>إشعار بموعد الوصول</div>
+          <div class="svc-feat-item" style="color:rgba(255,255,255,.9)"><span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>محادثة مباشرة مع طبيبك</div>
+          <div class="svc-feat-item" style="color:rgba(255,255,255,.9)"><span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>إرسال استفسارات وملاحظات</div>
+          <div class="svc-feat-item" style="color:rgba(255,255,255,.9)"><span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>خصوصية وأمان تام</div>
         </div>
-      </div>
-      <div class="svc-card">
+        <div class="svc-cta svc-cta-featured">ابدأ المحادثة <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></div>
+      </a>
+
+      {{-- بطاقة 3: التخصصات الطبية — رابط فعلي لصفحة التخصصات --}}
+      <a href="{{ route('specialties') }}" class="svc-card svc-card-link">
         <div class="svc-blob" style="width:120px;height:120px;bottom:-30px;right:-30px"></div>
-        <div class="svc-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg></div>
-        <span class="svc-badge">الطب عن بُعد</span>
-        <h3 style="font-size:18px;font-weight:900;color:var(--td);margin-bottom:10px">استشارة من بيتك</h3>
-        <p style="font-size:13.5px;color:var(--tm);line-height:1.8">استشارات طبية عن بُعد مع ملف طبي إلكتروني شامل يحفظ التاريخ المرضي والتحاليل والأشعة للمتابعة والمراجعة.</p>
+        <div class="svc-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <span class="svc-badge">14 تخصصاً طبياً</span>
+        <h3 style="font-size:18px;font-weight:900;color:var(--td);margin-bottom:10px">التخصصات الطبية</h3>
+        <p style="font-size:13.5px;color:var(--tm);line-height:1.8">تصفّح كل التخصصات المتاحة على المنصة، واعثر على الطبيب المناسب لحالتك بسهولة ووضوح.</p>
         <div style="display:flex;flex-direction:column;gap:8px;margin-top:16px">
-          <div class="svc-feat-item" style="color:var(--td)"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>ملف طبي إلكتروني شامل</div>
-          <div class="svc-feat-item" style="color:var(--td)"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>حفظ التحاليل والأشعة</div>
-          <div class="svc-feat-item" style="color:var(--td)"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>متابعة مستمرة مع الطبيب</div>
+          <div class="svc-feat-item" style="color:var(--td)"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>14 تخصصاً بأيقونات مميزة</div>
+          <div class="svc-feat-item" style="color:var(--td)"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>عرض الأطباء فور اختيار التخصص</div>
+          <div class="svc-feat-item" style="color:var(--td)"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>حجز مباشر لأي طبيب</div>
         </div>
-      </div>
+        <div class="svc-cta">تصفّح التخصصات <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></div>
+      </a>
+
     </div>
   </div>
 </div>
@@ -341,12 +359,12 @@
   <div class="si">
     <div class="sh"><span class="eyebrow">لماذا منصتنا؟</span><h2>كل ما تحتاجه في مكان واحد</h2><p>منصة متكاملة تربط المرضى بالأطباء في الزنتان</p></div>
     <div class="feat-grid">
-      <div class="fc"><div class="fc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div><h4>حجز فوري بدون انتظار</h4><p>اختر الطبيب والوقت والعيادة وأكمل الحجز في ثوانٍ.</p></div></div>
-      <div class="fc"><div class="fc-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4>عيادات قريبة منك</h4><p>اعثر على أقرب عيادة في الزنتان.</p></div></div>
-      <div class="fc"><div class="fc-ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><h4>تواصل مع طبيبك</h4><p>أرسل تقاريرك وتواصل مباشرة مع طبيبك بأمان.</p></div></div>
+      <a href="{{ route('booking') }}" class="fc fc-link"><div class="fc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div><h4>حجز فوري بدون انتظار</h4><p>اختر الطبيب والوقت والعيادة وأكمل الحجز في ثوانٍ.</p></div></a>
+      <a href="{{ route('doctors') }}" class="fc fc-link"><div class="fc-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4>عيادات قريبة منك</h4><p>اعثر على أقرب عيادة في الزنتان.</p></div></a>
+      <a href="{{ route('consultation') }}" class="fc fc-link"><div class="fc-ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><h4>تواصل مع طبيبك</h4><p>أرسل تقاريرك وتواصل مباشرة مع طبيبك بأمان.</p></div></a>
       <div class="fc"><div class="fc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div><h4>بياناتك محمية دائماً</h4><p>أعلى معايير الأمان لحماية بياناتك الطبية.</p></div></div>
       <div class="fc"><div class="fc-ico"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><div><h4>إشعارات فورية</h4><p>تنبيهات تلقائية قبل موعدك.</p></div></div>
-      <div class="fc"><div class="fc-ico"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><h4>خدمة مجانية بالكامل</h4><p>لا رسوم مخفية — الحجز مجاني تماماً.</p></div></div>
+      <a href="{{ route('appointments') }}" class="fc fc-link"><div class="fc-ico"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><h4>خدمة مجانية بالكامل</h4><p>لا رسوم مخفية — تابع مواعيدك في أي وقت.</p></div></a>
     </div>
   </div>
 </div>
@@ -447,7 +465,7 @@ async function loadHomeData() {
     let specHtml = '';
     specs.forEach(function(s) {
       const count = doctors.filter(function(d){ return d.specialty_id == s.id; }).length;
-      specHtml += '<div class="sp-card"><div class="sp-ico">' + getSpecSVG(s.name_ar) + '</div><h4>' + s.name_ar + '</h4><span>' + count + ' طبيب</span></div>';
+      specHtml += '<a href="' + "{{ route('specialties') }}" + '" class="sp-card" style="text-decoration:none"><div class="sp-ico">' + getSpecSVG(s.name_ar) + '</div><h4>' + s.name_ar + '</h4><span>' + count + ' طبيب</span></a>';
     });
     document.getElementById('home-specs').innerHTML = specHtml || '<p style="grid-column:1/-1;text-align:center;color:var(--tm)">لا توجد تخصصات</p>';
     let docHtml = '';
