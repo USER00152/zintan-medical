@@ -4,39 +4,50 @@
 
 @section('styles')
 <style>
-.cons-lay{display:grid;grid-template-columns:270px 1fr;gap:18px;padding-top:22px;padding-bottom:40px}
+.cons-page{max-width:1000px;margin:0 auto;padding:28px 20px 60px}
+.cons-lay{display:grid;grid-template-columns:280px 1fr;gap:20px;align-items:start}
+
+/* قائمة الأطباء */
 .doc-list{background:var(--card);border:1.5px solid var(--bdr);border-radius:var(--r22);overflow:hidden}
-.dl-hd{padding:14px 18px;border-bottom:1px solid var(--bds)}
-.dl-hd h3{font-size:14px;font-weight:800;color:var(--td)}
-.dl-item{display:flex;align-items:center;gap:11px;padding:12px 18px;border-bottom:1px solid var(--bds);cursor:pointer;transition:.2s}
-.dl-item:hover,.dl-item.on{background:var(--pl)}
-.dl-item.on{border-right:3px solid var(--p)}
-.dl-av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex-shrink:0}
-.dl-nm{font-size:13px;font-weight:700;color:var(--td)}
-.dl-sp{font-size:11px;color:var(--p);font-weight:600}
+.doc-list-hd{padding:16px 18px;border-bottom:1px solid var(--bds);font-size:14px;font-weight:800;color:var(--td)}
+.doc-item{padding:14px 18px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:.2s;border-bottom:1px solid var(--bds)}
+.doc-item:last-child{border-bottom:none}
+.doc-item:hover{background:var(--pll)}
+.doc-item.on{background:var(--pl);border-right:3px solid var(--p)}
+.doc-av-sm{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0}
+.doc-info h4{font-size:13.5px;font-weight:800;color:var(--td);margin-bottom:2px}
+.doc-info span{font-size:11.5px;color:var(--tm)}
 .online-dot{width:8px;height:8px;border-radius:50%;background:#22a55e;margin-right:auto;flex-shrink:0}
-.chat-area{background:var(--card);border:1.5px solid var(--bdr);border-radius:var(--r22);display:flex;flex-direction:column;min-height:520px}
-.chat-hd{padding:14px 20px;border-bottom:1px solid var(--bds);display:flex;align-items:center;gap:12px}
-.chat-hd-info h3{font-size:14.5px;font-weight:800;color:var(--td)}
-.chat-hd-info p{font-size:11.5px;color:#22a55e;font-weight:600}
-.chat-msgs{flex:1;padding:18px;display:flex;flex-direction:column;gap:13px;overflow-y:auto;max-height:400px}
-.msg{max-width:72%;padding:11px 14px;border-radius:16px;font-size:13px;line-height:1.6}
-.msg-me{background:var(--p);color:#fff;align-self:flex-end;border-bottom-left-radius:4px}
-.msg-dr{background:var(--bg);color:var(--td);align-self:flex-start;border-bottom-right-radius:4px;border:1px solid var(--bdr)}
-.msg-time{font-size:10px;opacity:.6;margin-top:4px;display:block}
-.msg-file{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.15);border-radius:var(--r8);padding:9px 12px;margin-top:7px;font-size:12px;cursor:pointer}
-.msg-dr .msg-file{background:var(--pl)}
-.msg-file svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;flex-shrink:0}
-.chat-inp{padding:13px 18px;border-top:1px solid var(--bds);display:flex;align-items:center;gap:9px}
-.chat-inp input{flex:1;padding:10px 14px;border:1.5px solid var(--bdr);border-radius:var(--rF);font-size:13px;color:var(--td);background:var(--bg);font-family:var(--font)}
-.chat-inp input:focus{outline:none;border-color:var(--p)}
-.send-btn{width:40px;height:40px;border-radius:50%;background:var(--p);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
-.send-btn svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
-.file-btn{width:40px;height:40px;border-radius:50%;background:var(--bg);border:1.5px solid var(--bdr);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;color:var(--tm)}
-.file-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
-.empty-chat{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;padding:40px;text-align:center;color:var(--tm)}
-.empty-chat h3{font-size:16px;color:var(--td);font-weight:700;margin-bottom:6px}
-.loading-state{text-align:center;padding:30px;color:var(--tm);font-size:13px}
+
+/* منطقة المحادثة */
+.chat-area{background:var(--card);border:1.5px solid var(--bdr);border-radius:var(--r22);display:flex;flex-direction:column;height:580px}
+.chat-hd{padding:16px 20px;border-bottom:1px solid var(--bds);display:flex;align-items:center;gap:12px}
+.chat-hd h3{font-size:15px;font-weight:800;color:var(--td)}
+.chat-hd span{font-size:12px;color:#22a55e;font-weight:600}
+.chat-msgs{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px}
+.msg{max-width:72%;padding:12px 16px;border-radius:18px;font-size:13.5px;line-height:1.6;position:relative}
+.msg-time{font-size:10.5px;opacity:.6;margin-top:4px;display:block}
+.msg-me{background:var(--p);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.msg-dr{background:var(--pl);color:var(--td);align-self:flex-start;border-bottom-left-radius:4px;border:1px solid var(--bdr)}
+.chat-inp{padding:16px;border-top:1px solid var(--bds);display:flex;gap:10px;align-items:flex-end}
+.chat-inp textarea{flex:1;padding:11px 14px;border:1.5px solid var(--bdr);border-radius:14px;font-size:14px;font-family:var(--font);color:var(--td);background:var(--bg);resize:none;min-height:44px;max-height:120px;transition:.2s}
+.chat-inp textarea:focus{outline:none;border-color:var(--p);background:var(--card)}
+.send-btn{width:44px;height:44px;border-radius:50%;background:var(--p);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:.2s;box-shadow:var(--sp)}
+.send-btn:hover{background:var(--pd);transform:scale(1.08)}
+.send-btn svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round}
+.empty-chat{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;color:var(--tm);text-align:center;padding:40px}
+.empty-chat svg{width:56px;height:56px;fill:none;stroke:var(--bdr);stroke-width:1.5;stroke-linecap:round;margin-bottom:16px}
+.empty-chat h3{font-size:16px;font-weight:700;margin-bottom:8px;color:var(--td)}
+.empty-chat p{font-size:13.5px;line-height:1.7}
+.login-prompt{background:var(--pl);border:1.5px solid var(--bdr);border-radius:var(--r22);padding:32px;text-align:center}
+.login-prompt h3{font-size:18px;font-weight:800;color:var(--td);margin-bottom:10px}
+.login-prompt p{font-size:14px;color:var(--tm);margin-bottom:20px;line-height:1.7}
+.inp-login{width:100%;padding:12px 14px;border:1.5px solid var(--bdr);border-radius:var(--r8);font-size:14px;font-family:var(--font);color:var(--td);background:var(--card);margin-bottom:12px}
+.inp-login:focus{outline:none;border-color:var(--p)}
+@media(max-width:768px){
+  .cons-lay{grid-template-columns:1fr!important}
+  .chat-area{height:420px}
+}
 </style>
 @endsection
 
@@ -49,138 +60,187 @@
   </div>
 </div>
 
-<div class="si" style="padding:0 28px">
-  <div class="cons-lay">
-    <div class="doc-list">
-      <div class="dl-hd"><h3>الأطباء المتاحون</h3></div>
-      <div id="my-doctors"><div class="loading-state">جاري التحميل...</div></div>
+<div class="cons-page">
+
+  {{-- لو مش مسجّل دخول --}}
+  <div id="login-section" style="display:none">
+    <div class="login-prompt">
+      <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="var(--p)" stroke-width="1.5" stroke-linecap="round" style="margin:0 auto 16px"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      <h3>سجّل دخولك للتواصل مع طبيبك</h3>
+      <p>أدخل اسمك للوصول لمحادثاتك مع الأطباء</p>
+      <input class="inp-login" type="text" id="login-name" placeholder="اسمك الكامل...">
+      <button class="btn bp" style="width:100%" onclick="doLogin()">دخول</button>
     </div>
-    <div class="chat-area" id="chat-area">
-      <div class="empty-chat">
-        <svg width="60" height="60" fill="none" stroke="var(--tl)" stroke-width="1.5" stroke-linecap="round" viewBox="0 0 24 24" style="margin-bottom:16px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        <h3>اختر طبيباً للمحادثة</h3>
-        <p style="font-size:13px">اختر من قائمة الأطباء للبدء في المحادثة</p>
+  </div>
+
+  {{-- المحادثة --}}
+  <div id="chat-section" style="display:none">
+    <div class="cons-lay">
+      <div class="doc-list">
+        <div class="doc-list-hd">الأطباء المتاحون</div>
+        <div id="doc-list-items"><div style="padding:20px;text-align:center;color:var(--tm);font-size:13px">جاري التحميل...</div></div>
+      </div>
+      <div class="chat-area" id="chat-area">
+        <div class="empty-chat" id="empty-state">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <h3>اختر طبيباً للمحادثة</h3>
+          <p>اختر من قائمة الأطباء على اليسار لبدء المحادثة</p>
+        </div>
+        <div id="chat-inner" style="display:none;flex-direction:column;height:100%">
+          <div class="chat-hd">
+            <div class="doc-av-sm" id="chat-doc-av">د</div>
+            <div><h3 id="chat-doc-name">اسم الطبيب</h3><span>● متاح</span></div>
+          </div>
+          <div class="chat-msgs" id="chat-msgs"></div>
+          <div class="chat-inp">
+            <textarea id="msg-input" placeholder="اكتب رسالتك هنا..." rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMsg()}"></textarea>
+            <button class="send-btn" onclick="sendMsg()">
+              <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
 </div>
 @endsection
 
 @section('scripts')
 <script>
-let selectedDoc = null;
-let messages = [];
+let currentToken = token;
+let currentUser  = user;
+let currentDoctor = null;
+let conversations = {}; // تخزين المحادثات في الذاكرة
 
-async function loadMyDoctors() {
-    try {
-        const res = await fetch(API + '/doctors', {
-            headers: {
-                'Accept': 'application/json',
-                'Authorization': 'Bearer ' + token
-            }
-        });
-        const doctors = await res.json();
-
-        if (!doctors.length) {
-            document.getElementById('my-doctors').innerHTML = '<div class="loading-state">لا يوجد أطباء متاحون</div>';
-            return;
-        }
-
-        let html = '';
-        doctors.forEach(function(d) {
-            const initial = d.user && d.user.name ? d.user.name.charAt(0) : 'د';
-            const name    = d.user && d.user.name ? d.user.name : 'طبيب';
-            const spec    = d.specialty && d.specialty.name_ar ? d.specialty.name_ar : '';
-            html += '<div class="dl-item" onclick="openChat(' + JSON.stringify(d).replace(/'/g,"\\'") + ',this)">';
-            html += '<div class="dl-av">' + initial + '</div>';
-            html += '<div><div class="dl-nm">' + name + '</div><div class="dl-sp">' + spec + '</div></div>';
-            html += '<div class="online-dot"></div></div>';
-        });
-        document.getElementById('my-doctors').innerHTML = html;
-    } catch(e) {
-        document.getElementById('my-doctors').innerHTML = '<div class="loading-state">تعذّر التحميل</div>';
-    }
+/* ══ تحقق من الدخول ══ */
+function checkAuth(){
+  if(currentToken && currentUser && currentUser.name){
+    document.getElementById('login-section').style.display = 'none';
+    document.getElementById('chat-section').style.display  = 'block';
+    loadDoctors();
+  } else {
+    document.getElementById('login-section').style.display = 'block';
+    document.getElementById('chat-section').style.display  = 'none';
+  }
 }
 
-function openChat(doctor, el) {
-    document.querySelectorAll('.dl-item').forEach(function(d){d.classList.remove('on')});
-    el.classList.add('on');
-    selectedDoc = doctor;
-
-    const initial = doctor.user && doctor.user.name ? doctor.user.name.charAt(0) : 'د';
-    const name    = doctor.user && doctor.user.name ? doctor.user.name : 'طبيب';
-
-    messages = [
-        { from:'dr', text:'مرحباً، كيف حالك اليوم؟ هل هناك تحسن في الأعراض؟', time:'10:30' },
-        { from:'me', text:'الحمد لله، هناك تحسن ملحوظ. لكن لا زال عندي بعض الألم أحياناً.', time:'10:32' },
-        { from:'dr', text:'جيد. هل قمت بعمل التحليل الذي طلبته؟ أرسل لي النتيجة.', time:'10:34' },
-        { from:'me', text:'نعم، إليك نتيجة التحليل:', file:'تحليل_الدم_2026.pdf', time:'10:36' },
-        { from:'dr', text:'شكراً، راجعت النتيجة. كل شيء طبيعي. استمر في الأدوية وسأراك في الموعد القادم.', time:'10:40' },
-    ];
-
-    renderChat(initial, name);
-}
-
-function renderChat(initial, name) {
-    let msgsHtml = '';
-    messages.forEach(function(m) {
-        const cls = m.from === 'me' ? 'msg-me' : 'msg-dr';
-        msgsHtml += '<div class="msg ' + cls + '">' + m.text;
-        if (m.file) {
-            msgsHtml += '<div class="msg-file"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>' + m.file + '</div>';
-        }
-        msgsHtml += '<span class="msg-time">' + m.time + '</span></div>';
+async function doLogin(){
+  const name = document.getElementById('login-name').value.trim();
+  if(!name){ alert('يرجى إدخال اسمك'); return; }
+  try {
+    const r = await fetch(API+'/login', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({name:name})
     });
-
-    document.getElementById('chat-area').innerHTML =
-        '<div class="chat-hd">' +
-        '<div class="dl-av">' + initial + '</div>' +
-        '<div class="chat-hd-info"><h3>' + name + '</h3><p>متصل الآن</p></div>' +
-        '</div>' +
-        '<div class="chat-msgs" id="chat-msgs">' + msgsHtml + '</div>' +
-        '<div class="chat-inp">' +
-        '<button class="file-btn" onclick="sendFile()"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg></button>' +
-        '<input type="text" id="msg-inp" placeholder="اكتب رسالتك..." onkeydown="if(event.key===\'Enter\') sendMsg()">' +
-        '<button class="send-btn" onclick="sendMsg()"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>' +
-        '</div>';
-
-    setTimeout(function() {
-        const msgs = document.getElementById('chat-msgs');
-        if (msgs) msgs.scrollTop = msgs.scrollHeight;
-    }, 100);
+    const data = await r.json();
+    if(r.ok && data.token){
+      currentToken = data.token;
+      currentUser  = data.user;
+      localStorage.setItem('token', currentToken);
+      localStorage.setItem('user', JSON.stringify(currentUser));
+      document.getElementById('user-avatar').textContent = currentUser.name.charAt(0);
+      checkAuth();
+    }
+  } catch(e){ alert('تعذّر الاتصال'); }
 }
 
-function sendMsg() {
-    const inp = document.getElementById('msg-inp');
-    const txt = inp.value.trim();
-    if (!txt || !selectedDoc) return;
-    const now = new Date();
-    const time = now.getHours() + ':' + String(now.getMinutes()).padStart(2,'0');
-    messages.push({ from:'me', text:txt, time:time });
-    inp.value = '';
-    const initial = selectedDoc.user && selectedDoc.user.name ? selectedDoc.user.name.charAt(0) : 'د';
-    const name    = selectedDoc.user && selectedDoc.user.name ? selectedDoc.user.name : 'طبيب';
-    renderChat(initial, name);
-    document.getElementById('msg-inp').focus();
+async function loadDoctors(){
+  try {
+    const r = await fetch(API+'/doctors', {headers:{'Accept':'application/json','Authorization':'Bearer '+currentToken}});
+    const doctors = await r.json();
+    let html = '';
+    if(!doctors.length){
+      html = '<div style="padding:20px;text-align:center;color:var(--tm);font-size:13px">لا يوجد أطباء متاحون</div>';
+    } else {
+      doctors.forEach(function(d){
+        const name = d.user && d.user.name ? d.user.name : 'طبيب';
+        const spec = d.specialty && d.specialty.name_ar ? d.specialty.name_ar : '';
+        const init = name.charAt(0);
+        html += '<div class="doc-item" onclick="selectDoctor('+JSON.stringify(d).replace(/"/g,'&quot;')+')" id="doc-'+d.id+'">';
+        html += '<div class="doc-av-sm">'+init+'</div>';
+        html += '<div class="doc-info"><h4>'+name+'</h4><span>'+spec+'</span></div>';
+        html += '<div class="online-dot"></div>';
+        html += '</div>';
+      });
+    }
+    document.getElementById('doc-list-items').innerHTML = html;
+  } catch(e){
+    document.getElementById('doc-list-items').innerHTML = '<div style="padding:20px;text-align:center;color:var(--tm);font-size:13px">تعذّر التحميل</div>';
+  }
 }
 
-function sendFile() {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = '.pdf,.jpg,.png,.docx';
-    input.onchange = function() {
-        if (!input.files.length || !selectedDoc) return;
-        const file = input.files[0];
-        const now = new Date();
-        const time = now.getHours() + ':' + String(now.getMinutes()).padStart(2,'0');
-        messages.push({ from:'me', text:'تم إرسال ملف:', file:file.name, time:time });
-        const initial = selectedDoc.user && selectedDoc.user.name ? selectedDoc.user.name.charAt(0) : 'د';
-        const name    = selectedDoc.user && selectedDoc.user.name ? selectedDoc.user.name : 'طبيب';
-        renderChat(initial, name);
-    };
-    input.click();
+function selectDoctor(doc){
+  currentDoctor = doc;
+  document.querySelectorAll('.doc-item').forEach(function(el){el.classList.remove('on')});
+  const el = document.getElementById('doc-'+doc.id);
+  if(el) el.classList.add('on');
+
+  const name = doc.user && doc.user.name ? doc.user.name : 'طبيب';
+  const init = name.charAt(0);
+  document.getElementById('chat-doc-name').textContent = name;
+  document.getElementById('chat-doc-av').textContent   = init;
+  document.getElementById('empty-state').style.display  = 'none';
+  document.getElementById('chat-inner').style.display   = 'flex';
+
+  if(!conversations[doc.id]){
+    const spec = doc.specialty && doc.specialty.name_ar ? doc.specialty.name_ar : 'طبيب';
+    const now  = getTime();
+    conversations[doc.id] = [
+      {from:'dr', text:'أهلاً! أنا '+name+' متخصص في '+spec+'. كيف يمكنني مساعدتك اليوم؟', time:now}
+    ];
+  }
+  renderMsgs(doc.id);
 }
 
-loadMyDoctors();
+function renderMsgs(docId){
+  const msgs = conversations[docId] || [];
+  let html = '';
+  msgs.forEach(function(m){
+    const cls = m.from==='me' ? 'msg msg-me' : 'msg msg-dr';
+    html += '<div class="'+cls+'">'+m.text+'<span class="msg-time">'+m.time+'</span></div>';
+  });
+  const el = document.getElementById('chat-msgs');
+  el.innerHTML = html;
+  el.scrollTop = el.scrollHeight;
+}
+
+function getTime(){
+  const d = new Date();
+  return d.getHours()+':'+String(d.getMinutes()).padStart(2,'0');
+}
+
+const autoReplies = [
+  'شكراً على تواصلك معي. سأراجع حالتك وأرد عليك قريباً.',
+  'يسعدني مساعدتك. هل يمكنك توضيح الأعراض بشكل أكثر تفصيلاً؟',
+  'تم استلام رسالتك. أنصحك بالمراجعة للفحص الدقيق.',
+  'معلومات مهمة. هل أنت على أدوية حالياً؟',
+  'أفهم وضعك. ننصح بحجز موعد للكشف المباشر.',
+  'سأراجع بياناتك وأرسل لك التوصيات اللازمة.',
+];
+let replyIdx = 0;
+
+function sendMsg(){
+  if(!currentDoctor) return;
+  const inp  = document.getElementById('msg-input');
+  const text = inp.value.trim();
+  if(!text) return;
+
+  const now = getTime();
+  conversations[currentDoctor.id].push({from:'me', text:text, time:now});
+  inp.value = '';
+  renderMsgs(currentDoctor.id);
+
+  // رد تلقائي بعد ثانيتين
+  setTimeout(function(){
+    const reply = autoReplies[replyIdx % autoReplies.length];
+    replyIdx++;
+    conversations[currentDoctor.id].push({from:'dr', text:reply, time:getTime()});
+    renderMsgs(currentDoctor.id);
+  }, 2000);
+}
+
+checkAuth();
 </script>
 @endsection
