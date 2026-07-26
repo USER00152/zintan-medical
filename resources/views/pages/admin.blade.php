@@ -5,8 +5,6 @@
 @section('styles')
 <style>
 .adm{max-width:1100px;margin:0 auto;padding:28px 20px 60px}
-
-/* Stats */
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
 .stat-card{background:var(--card);border:1.5px solid var(--bdr);border-radius:var(--r22);padding:20px;display:flex;align-items:center;gap:14px;transition:.25s}
 .stat-card:hover{box-shadow:var(--s2);border-color:var(--p)}
@@ -14,18 +12,12 @@
 .stat-ico svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
 .stat-val{font-size:26px;font-weight:900;color:var(--td);line-height:1}
 .stat-lbl{font-size:12px;color:var(--tm);font-weight:600;margin-top:3px}
-
-/* Tabs */
 .adm-tabs{display:flex;gap:6px;margin-bottom:24px;flex-wrap:wrap}
 .adm-tab{padding:9px 20px;border-radius:var(--rF);font-weight:700;font-size:13px;color:var(--tm);border:1.5px solid var(--bdr);background:var(--card);cursor:pointer;transition:.2s;font-family:var(--font)}
 .adm-tab.on{background:var(--p);color:#fff;border-color:var(--p)}
 .adm-tab:hover:not(.on){border-color:var(--p);color:var(--p)}
-
-/* Sections */
 .adm-sec{display:none}
 .adm-sec.on{display:block}
-
-/* Table */
 .adm-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:var(--r22);overflow:hidden;border:1.5px solid var(--bdr)}
 .adm-table th{background:var(--pl);color:var(--p);font-size:12.5px;font-weight:800;padding:12px 16px;text-align:right}
 .adm-table td{padding:12px 16px;font-size:13px;color:var(--td);border-top:1px solid var(--bds)}
@@ -35,8 +27,6 @@
 .b-pn{background:#fff8ec;color:#f0a93a}
 .b-cn{background:#fde8e8;color:#e14b4b}
 .b-dn{background:var(--bg);color:var(--tm)}
-
-/* Form card */
 .form-card{background:var(--card);border:1.5px solid var(--bdr);border-radius:var(--r22);padding:24px;margin-bottom:20px}
 .form-card h3{font-size:16px;font-weight:800;color:var(--td);margin-bottom:20px;display:flex;align-items:center;gap:8px}
 .form-card h3 svg{width:18px;height:18px;fill:none;stroke:var(--p);stroke-width:2;stroke-linecap:round}
@@ -51,16 +41,13 @@
 .dbtn:hover{background:#e14b4b;color:#fff}
 .ebtn{padding:7px 14px;background:var(--pl);color:var(--p);border:1px solid var(--bdr);border-radius:var(--r8);font-size:12px;font-weight:700;cursor:pointer;font-family:var(--font);transition:.2s}
 .ebtn:hover{background:var(--p);color:#fff}
-
-/* Toast */
 .toast{position:fixed;bottom:24px;left:24px;background:#22a55e;color:#fff;padding:12px 20px;border-radius:var(--r8);font-size:14px;font-weight:700;z-index:999;opacity:0;transform:translateY(10px);transition:.3s;pointer-events:none}
 .toast.show{opacity:1;transform:translateY(0)}
 .toast.err{background:#e14b4b}
-
 .sec-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
 .sec-hd h2{font-size:18px;font-weight:800;color:var(--td)}
 .loading-state{text-align:center;padding:40px;color:var(--tm)}
-
+.hint{font-size:12px;color:var(--tm);margin-top:4px}
 @media(max-width:768px){
   .stats-grid{grid-template-columns:1fr 1fr!important}
   .form-grid{grid-template-columns:1fr!important}
@@ -81,35 +68,13 @@
 
 <div class="adm">
 
-  <!-- الإحصائيات -->
   <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-ico" style="background:linear-gradient(135deg,var(--p),var(--pd))">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      </div>
-      <div><div class="stat-val" id="s-docs">—</div><div class="stat-lbl">طبيب مسجّل</div></div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-ico" style="background:linear-gradient(135deg,#f0a93a,#d4891a)">
-        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-      </div>
-      <div><div class="stat-val" id="s-apts">—</div><div class="stat-lbl">حجز إجمالي</div></div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-ico" style="background:linear-gradient(135deg,#5b9bd5,#2e6da4)">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      </div>
-      <div><div class="stat-val" id="s-clinics">—</div><div class="stat-lbl">عيادة</div></div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-ico" style="background:linear-gradient(135deg,#e14b4b,#c0392b)">
-        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-      </div>
-      <div><div class="stat-val" id="s-specs">—</div><div class="stat-lbl">تخصص طبي</div></div>
-    </div>
+    <div class="stat-card"><div class="stat-ico" style="background:linear-gradient(135deg,var(--p),var(--pd))"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><div><div class="stat-val" id="s-docs">—</div><div class="stat-lbl">طبيب مسجّل</div></div></div>
+    <div class="stat-card"><div class="stat-ico" style="background:linear-gradient(135deg,#f0a93a,#d4891a)"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div><div class="stat-val" id="s-apts">—</div><div class="stat-lbl">حجز إجمالي</div></div></div>
+    <div class="stat-card"><div class="stat-ico" style="background:linear-gradient(135deg,#5b9bd5,#2e6da4)"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="stat-val" id="s-clinics">—</div><div class="stat-lbl">عيادة</div></div></div>
+    <div class="stat-card"><div class="stat-ico" style="background:linear-gradient(135deg,#e14b4b,#c0392b)"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div><div class="stat-val" id="s-specs">—</div><div class="stat-lbl">تخصص طبي</div></div></div>
   </div>
 
-  <!-- التبويبات -->
   <div class="adm-tabs">
     <button class="adm-tab on" onclick="switchTab('apts',this)">الحجوزات</button>
     <button class="adm-tab" onclick="switchTab('doctors',this)">الأطباء</button>
@@ -129,9 +94,7 @@
       <h3><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>إضافة طبيب جديد</h3>
       <div class="form-grid">
         <div class="fg"><label>الاسم الكامل *</label><input type="text" id="d-name" placeholder="د. محمد علي"></div>
-        <div class="fg"><label>البريد الإلكتروني *</label><input type="email" id="d-email" placeholder="doctor@email.com"></div>
-        <div class="fg"><label>كلمة المرور *</label><input type="password" id="d-pass" placeholder="كلمة مرور قوية"></div>
-        <div class="fg"><label>رقم الهاتف</label><input type="text" id="d-phone" placeholder="091-XXX-XXXX"></div>
+        <div class="fg"><label>رقم الهاتف *</label><input type="text" id="d-phone" placeholder="091-XXX-XXXX"><p class="hint">يُستخدم للدخول — كلمة المرور ستكون نفس رقم الهاتف</p></div>
         <div class="fg"><label>التخصص *</label><select id="d-spec"><option value="">اختر التخصص</option></select></div>
         <div class="fg"><label>سنوات الخبرة</label><input type="number" id="d-exp" placeholder="5" min="0" max="50"></div>
       </div>
@@ -178,8 +141,8 @@
 
 @section('scripts')
 <script>
-const H = { 'Accept':'application/json', 'Authorization':'Bearer '+token, 'Content-Type':'application/json' };
-const statusMap = { confirmed:{l:'مؤكد',c:'b-ok'}, pending:{l:'قيد الانتظار',c:'b-pn'}, cancelled:{l:'ملغي',c:'b-cn'}, completed:{l:'مكتمل',c:'b-dn'} };
+const H = {'Accept':'application/json','Authorization':'Bearer '+token,'Content-Type':'application/json'};
+const statusMap = {confirmed:{l:'مؤكد',c:'b-ok'},pending:{l:'قيد الانتظار',c:'b-pn'},cancelled:{l:'ملغي',c:'b-cn'},completed:{l:'مكتمل',c:'b-dn'}};
 const months = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
 
 let allDocs=[], allSpecs=[], allClinics=[], allApts=[];
@@ -188,34 +151,38 @@ function toast(msg, err=false){
   const t=document.getElementById('toast');
   t.textContent=msg; t.className='toast'+(err?' err':'');
   t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3000);
+  setTimeout(function(){t.classList.remove('show')},3500);
 }
 
 function switchTab(name, btn){
-  document.querySelectorAll('.adm-tab').forEach(b=>b.classList.remove('on'));
-  document.querySelectorAll('.adm-sec').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.adm-tab').forEach(function(b){b.classList.remove('on')});
+  document.querySelectorAll('.adm-sec').forEach(function(s){s.classList.remove('on')});
   btn.classList.add('on');
   document.getElementById('sec-'+name).classList.add('on');
 }
 
-/* ══ LOAD ALL ══ */
 async function loadAll(){
   try {
-    const [ar,sr,cr,apr] = await Promise.all([
-      fetch(API+'/doctors',{headers:H}),
-      fetch(API+'/specialties',{headers:H}),
-      fetch(API+'/clinics',{headers:H}),
-      fetch(API+'/my-appointments',{headers:H}),
+    const [ar, sr, cr] = await Promise.all([
+      fetch(API+'/doctors', {headers:H}),
+      fetch(API+'/specialties', {headers:H}),
+      fetch(API+'/clinics', {headers:H}),
     ]);
-    allDocs = await ar.json();
-    allSpecs = await sr.json();
+    allDocs    = await ar.json();
+    allSpecs   = await sr.json();
     allClinics = await cr.json();
-    allApts = await apr.json();
 
-    document.getElementById('s-docs').textContent = Array.isArray(allDocs)?allDocs.length:'—';
-    document.getElementById('s-specs').textContent = Array.isArray(allSpecs)?allSpecs.length:'—';
+    // الحجوزات — نجرب نجيبها، لو ما اشتغل نعرض رسالة
+    try {
+      const apr = await fetch(API+'/my-appointments', {headers:H});
+      if(apr.ok) allApts = await apr.json();
+      else allApts = [];
+    } catch(e){ allApts = []; }
+
+    document.getElementById('s-docs').textContent    = Array.isArray(allDocs)?allDocs.length:'—';
+    document.getElementById('s-specs').textContent   = Array.isArray(allSpecs)?allSpecs.length:'—';
     document.getElementById('s-clinics').textContent = Array.isArray(allClinics)?allClinics.length:'—';
-    document.getElementById('s-apts').textContent = Array.isArray(allApts)?allApts.length:'—';
+    document.getElementById('s-apts').textContent    = Array.isArray(allApts)?allApts.length:'—';
 
     renderApts(); renderDocs(); renderSpecs(); renderClinics(); fillSpecSelect();
   } catch(e){ toast('تعذر تحميل البيانات',true); }
@@ -267,13 +234,13 @@ function renderDocs(){
   if(!Array.isArray(allDocs)||!allDocs.length){
     document.getElementById('docs-wrap').innerHTML='<div class="loading-state">لا يوجد أطباء</div>';return;
   }
-  let h='<table class="adm-table"><thead><tr><th>#</th><th>الاسم</th><th>التخصص</th><th>الخبرة</th><th>العيادات</th><th>إجراءات</th></tr></thead><tbody>';
+  let h='<table class="adm-table"><thead><tr><th>#</th><th>الاسم</th><th>الهاتف</th><th>التخصص</th><th>الخبرة</th><th>إجراءات</th></tr></thead><tbody>';
   allDocs.forEach(function(d){
     const name=d.user?d.user.name:'—';
+    const phone=d.user?d.user.phone:'—';
     const spec=d.specialty?d.specialty.name_ar:'—';
     const exp=d.years_experience?d.years_experience+' سنوات':'—';
-    const cls=d.clinics&&d.clinics.length?d.clinics.map(function(c){return c.name}).join('، '):'—';
-    h+='<tr><td>'+d.id+'</td><td><b>'+name+'</b></td><td><span class="badge b-ok">'+spec+'</span></td><td>'+exp+'</td><td>'+cls+'</td>';
+    h+='<tr><td>'+d.id+'</td><td><b>'+name+'</b></td><td>'+phone+'</td><td><span class="badge b-ok">'+spec+'</span></td><td>'+exp+'</td>';
     h+='<td><button class="dbtn" onclick="deleteDoctor('+d.id+')">حذف</button></td></tr>';
   });
   h+='</tbody></table>';
@@ -289,25 +256,47 @@ function fillSpecSelect(){
 }
 
 async function addDoctor(){
-  const name=document.getElementById('d-name').value.trim();
-  const email=document.getElementById('d-email').value.trim();
-  const pass=document.getElementById('d-pass').value.trim();
-  const phone=document.getElementById('d-phone').value.trim();
-  const spec=document.getElementById('d-spec').value;
-  const exp=document.getElementById('d-exp').value;
-  const bio=document.getElementById('d-bio').value.trim();
-  if(!name||!email||!pass||!spec){toast('يرجى تعبئة الحقول المطلوبة',true);return;}
+  const name  = document.getElementById('d-name').value.trim();
+  const phone = document.getElementById('d-phone').value.trim();
+  const spec  = document.getElementById('d-spec').value;
+  const exp   = document.getElementById('d-exp').value;
+  const bio   = document.getElementById('d-bio').value.trim();
+
+  if(!name || !phone || !spec){
+    toast('يرجى تعبئة الاسم والهاتف والتخصص',true);
+    return;
+  }
+
   try {
-    const r=await fetch(API+'/register',{method:'POST',headers:H,body:JSON.stringify({name,email,password:pass,password_confirmation:pass,phone,role:'doctor'})});
-    const u=await r.json();
-    if(!r.ok){toast(u.message||'خطأ في إنشاء الحساب',true);return;}
-    const r2=await fetch(API+'/doctors',{method:'POST',headers:{...H,'Authorization':'Bearer '+u.token},body:JSON.stringify({specialty_id:spec,years_experience:exp||0,bio})});
+    // إنشاء حساب الطبيب بالاسم والهاتف
+    const r = await fetch(API+'/register', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({name:name, phone:phone, role:'doctor'})
+    });
+    const u = await r.json();
+    if(!r.ok){
+      const errMsg = u.errors ? Object.values(u.errors).flat().join(' | ') : (u.message||'خطأ في إنشاء الحساب');
+      toast(errMsg, true);
+      return;
+    }
+
+    // إنشاء الملف الطبي بتوكن الطبيب الجديد
+    const r2 = await fetch(API+'/doctors', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json','Authorization':'Bearer '+u.token},
+      body: JSON.stringify({specialty_id:spec, years_experience:exp||0, bio:bio})
+    });
+
     if(r2.ok){
-      toast('تم إضافة الطبيب ✓');
-      ['d-name','d-email','d-pass','d-phone','d-exp','d-bio'].forEach(function(id){document.getElementById(id).value='';});
+      toast('تم إضافة الطبيب بنجاح ✓');
+      ['d-name','d-phone','d-exp','d-bio'].forEach(function(id){document.getElementById(id).value='';});
       document.getElementById('d-spec').value='';
       loadAll();
-    } else { toast('تم إنشاء الحساب لكن تعذر إنشاء الملف الطبي',true); }
+    } else {
+      const e2 = await r2.json();
+      toast(e2.message||'تم إنشاء الحساب لكن فشل إنشاء الملف الطبي', true);
+    }
   } catch(e){ toast('خطأ في الاتصال',true); }
 }
 
@@ -342,7 +331,10 @@ async function addSpec(){
   try {
     const r=await fetch(API+'/specialties',{method:'POST',headers:H,body:JSON.stringify({name_ar:ar,name_en:en})});
     if(r.ok){ toast('تم إضافة التخصص ✓'); document.getElementById('sp-ar').value=''; document.getElementById('sp-en').value=''; loadAll(); }
-    else toast('تعذر الإضافة',true);
+    else {
+      const e=await r.json();
+      toast(e.message||'تعذر الإضافة',true);
+    }
   } catch(e){ toast('خطأ في الاتصال',true); }
 }
 
@@ -373,11 +365,14 @@ async function addClinic(){
   const name=document.getElementById('cl-name').value.trim();
   const addr=document.getElementById('cl-addr').value.trim();
   const phone=document.getElementById('cl-phone').value.trim();
-  if(!name||!addr){toast('يرجى تعبئة الحقول المطلوبة',true);return;}
+  if(!name||!addr){toast('يرجى تعبئة اسم العيادة والعنوان',true);return;}
   try {
-    const r=await fetch(API+'/clinics',{method:'POST',headers:H,body:JSON.stringify({name,address:addr,phone})});
+    const r=await fetch(API+'/clinics',{method:'POST',headers:H,body:JSON.stringify({name:name,address:addr,phone:phone})});
     if(r.ok){ toast('تم إضافة العيادة ✓'); document.getElementById('cl-name').value=''; document.getElementById('cl-addr').value=''; document.getElementById('cl-phone').value=''; loadAll(); }
-    else toast('تعذر الإضافة',true);
+    else {
+      const e=await r.json();
+      toast(e.message||'تعذر الإضافة',true);
+    }
   } catch(e){ toast('خطأ في الاتصال',true); }
 }
 
