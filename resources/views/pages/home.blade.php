@@ -335,19 +335,19 @@
         <div class="svc-cta svc-cta-featured">ابدأ المحادثة <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></div>
       </a>
 
-      {{-- بطاقة 3: التخصصات الطبية — رابط فعلي لصفحة التخصصات --}}
-      <a href="{{ route('specialties') }}" class="svc-card svc-card-link">
+      {{-- بطاقة 3: الطب عن بُعد --}}
+      <a href="{{ route('consultation') }}" class="svc-card svc-card-link">
         <div class="svc-blob" style="width:120px;height:120px;bottom:-30px;right:-30px"></div>
-        <div class="svc-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-        <span class="svc-badge">14 تخصصاً طبياً</span>
-        <h3 style="font-size:18px;font-weight:900;color:var(--td);margin-bottom:10px">التخصصات الطبية</h3>
-        <p style="font-size:13.5px;color:var(--tm);line-height:1.8">تصفّح كل التخصصات المتاحة على المنصة، واعثر على الطبيب المناسب لحالتك بسهولة ووضوح.</p>
+        <div class="svc-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg></div>
+        <span class="svc-badge">الطب عن بُعد</span>
+        <h3 style="font-size:18px;font-weight:900;color:var(--td);margin-bottom:10px">استشارة من بيتك</h3>
+        <p style="font-size:13.5px;color:var(--tm);line-height:1.8">استشارات طبية عن بُعد مع ملف طبي إلكتروني شامل يحفظ التاريخ المرضي والتحاليل والأشعة للمتابعة والمراجعة.</p>
         <div style="display:flex;flex-direction:column;gap:8px;margin-top:16px">
-          <div class="svc-feat-item" style="color:var(--td)"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>14 تخصصاً بأيقونات مميزة</div>
-          <div class="svc-feat-item" style="color:var(--td)"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>عرض الأطباء فور اختيار التخصص</div>
-          <div class="svc-feat-item" style="color:var(--td)"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>حجز مباشر لأي طبيب</div>
+          <div class="svc-feat-item" style="color:var(--td)"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>تواصل مباشر مع طبيبك</div>
+          <div class="svc-feat-item" style="color:var(--td)"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>إرسال استفسارات ووثائق طبية</div>
+          <div class="svc-feat-item" style="color:var(--td)"><span style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="11" height="11" fill="none" stroke="var(--p)" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>متابعة مستمرة بدون انتظار</div>
         </div>
-        <div class="svc-cta">تصفّح التخصصات <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></div>
+        <div class="svc-cta">ابدأ الاستشارة <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></div>
       </a>
 
     </div>
